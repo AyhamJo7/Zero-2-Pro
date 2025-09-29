@@ -15,3 +15,7 @@
 ## Level 3 — Projects
 
 - [Milestone: Simple ML App or RAG Demo with Evaluation](ai-03-project-mlapp.md) `(ai-03-project-mlapp)`
+
+## Level 4 — Advanced
+
+- [Advanced: RAG Evaluation, Guardrails, and Observability](ai-04-rag-eval-guardrails.md) `(ai-04-rag-eval-guardrails)`
