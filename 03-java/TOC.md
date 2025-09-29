@@ -15,3 +15,7 @@
 ## Level 3 — Projects
 
 - [Milestone: Production-ish Service (Logging, Health, Dockerfile)](java-03-project-service.md) `(java-03-project-service)`
+
+## Level 4 — Advanced
+
+- [Advanced: Resilient Services (timeouts, retries, circuit breakers) & Observability](java-04-advanced-resilience.md) `(java-04-advanced-resilience)`
