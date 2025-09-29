@@ -15,3 +15,7 @@
 ## Level 3 — Projects
 
 - [Milestone: Production-ish Go Service](go-03-project-service.md) `(go-03-project-service)`
+
+## Level 4 — Advanced
+
+- [Advanced: Concurrency Patterns, Context, and Backpressure](go-04-advanced-concurrency.md) `(go-04-advanced-concurrency)`
