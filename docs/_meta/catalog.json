@@ -1,44 +1,38 @@
 [
-  {
-    "id": "git-01-intro",
-    "track": "00-git-path",
-    "level": 0,
-    "path": "00-git-path/git-01-intro.md",
-    "title": "Git from Absolute Zero: Concepts & Setup"
-  },
-  {
-    "id": "git-02-first-commit",
-    "track": "00-git-path",
-    "level": 1,
-    "path": "00-git-path/git-02-first-commit.md",
-    "title": "Local Basics: init, status, add, commit, log"
-  },
-  {
-    "id": "git-03-branches-merges",
-    "track": "00-git-path",
-    "level": 1,
-    "path": "00-git-path/git-03-branches-merges.md",
-    "title": "Branches & Merges: Fast-forward, Three-way"
-  },
-  {
-    "id": "git-04-remotes-github",
-    "track": "00-git-path",
-    "level": 2,
-    "path": "00-git-path/git-04-remotes-github.md",
-    "title": "Remotes & GitHub: clone, fetch, pull, push, PR"
-  },
-  {
-    "id": "git-05-rebase-conflicts",
-    "track": "00-git-path",
-    "level": 2,
-    "path": "00-git-path/git-05-rebase-conflicts.md",
-    "title": "Rebase Safely: interactive rebase, fixups, autosquash"
-  },
-  {
-    "id": "git-06-history-tools",
-    "track": "00-git-path",
-    "level": 2,
-    "path": "00-git-path/git-06-history-tools.md",
-    "title": "Time Travel: log formats, blame, bisect, tags"
-  }
+  { "id": "git-01-intro", "track": "00-git-path", "level": 0, "path": "00-git-path/git-01-intro.md", "title": "Git from Absolute Zero: Concepts & Setup" },
+  { "id": "git-02-first-commit", "track": "00-git-path", "level": 1, "path": "00-git-path/git-02-first-commit.md", "title": "Local Basics: init, status, add, commit, log" },
+  { "id": "git-03-branches-merges", "track": "00-git-path", "level": 1, "path": "00-git-path/git-03-branches-merges.md", "title": "Branches & Merges: Fast-forward, Three-way" },
+  { "id": "git-04-remotes-github", "track": "00-git-path", "level": 2, "path": "00-git-path/git-04-remotes-github.md", "title": "Remotes & GitHub: clone, fetch, pull, push, PR" },
+  { "id": "git-05-rebase-conflicts", "track": "00-git-path", "level": 2, "path": "00-git-path/git-05-rebase-conflicts.md", "title": "Rebase Safely: interactive rebase, fixups, autosquash" },
+  { "id": "git-06-history-tools", "track": "00-git-path", "level": 2, "path": "00-git-path/git-06-history-tools.md", "title": "Time Travel: log formats, blame, bisect, tags" },
+
+  { "id": "web-00-orientation", "track": "01-web-development", "level": 0, "path": "01-web-development/web-00-orientation.md", "title": "From Zero: How the Web Works (Client/Server, HTTP, HTML/CSS)" },
+  { "id": "web-01-foundations-js", "track": "01-web-development", "level": 1, "path": "01-web-development/web-01-foundations-js.md", "title": "Foundations: Modern JavaScript + DOM Essentials" },
+  { "id": "web-02-core-fullstack", "track": "01-web-development", "level": 2, "path": "01-web-development/web-02-core-fullstack.md", "title": "Core Skills: API Basics + Persistence + Auth Concepts" },
+  { "id": "web-03-project-spa-api", "track": "01-web-development", "level": 3, "path": "01-web-development/web-03-project-spa-api.md", "title": "Milestone: SPA + API with Auth and Tests" },
+
+  { "id": "py-00-setup", "track": "02-python", "level": 0, "path": "02-python/py-00-setup.md", "title": "From Zero: Install Python, Virtual Envs, and First Script" },
+  { "id": "py-01-foundations", "track": "02-python", "level": 1, "path": "02-python/py-01-foundations.md", "title": "Foundations: Types, Control Flow, Functions, Modules" },
+  { "id": "py-02-core-tooling", "track": "02-python", "level": 2, "path": "02-python/py-02-core-tooling.md", "title": "Core Skills: Packaging, Testing (pytest), Logging, CLI" },
+  { "id": "py-03-project-cli", "track": "02-python", "level": 3, "path": "02-python/py-03-project-cli.md", "title": "Milestone: CLI Utility with Tests and Release" },
+
+  { "id": "java-00-setup", "track": "03-java", "level": 0, "path": "03-java/java-00-setup.md", "title": "From Zero: JDK Install, javac/java, and First Program" },
+  { "id": "java-01-foundations", "track": "03-java", "level": 1, "path": "03-java/java-01-foundations.md", "title": "Foundations: OOP, Collections, Exceptions, I/O" },
+  { "id": "java-02-core-rest", "track": "03-java", "level": 2, "path": "03-java/java-02-core-rest.md", "title": "Core Skills: Build a Minimal REST API + Tests" },
+  { "id": "java-03-project-service", "track": "03-java", "level": 3, "path": "03-java/java-03-project-service.md", "title": "Milestone: Production-ish Service (Logging, Health, Dockerfile)" },
+
+  { "id": "go-00-setup", "track": "04-go", "level": 0, "path": "04-go/go-00-setup.md", "title": "From Zero: Install Go, Modules, and First Program" },
+  { "id": "go-01-foundations", "track": "04-go", "level": 1, "path": "04-go/go-01-foundations.md", "title": "Foundations: Types, Errors, Testing, Packages" },
+  { "id": "go-02-core-concurrency", "track": "04-go", "level": 2, "path": "04-go/go-02-core-concurrency.md", "title": "Core Skills: HTTP Services + Goroutines & Channels" },
+  { "id": "go-03-project-service", "track": "04-go", "level": 3, "path": "04-go/go-03-project-service.md", "title": "Milestone: Production-ish Go Service" },
+
+  { "id": "ai-00-math-python", "track": "05-ai-ml", "level": 0, "path": "05-ai-ml/ai-00-math-python.md", "title": "From Zero: Math Survival Kit + Python for Data" },
+  { "id": "ai-01-classical-ml", "track": "05-ai-ml", "level": 1, "path": "05-ai-ml/ai-01-classical-ml.md", "title": "Foundations: ML Workflow + Classical Models" },
+  { "id": "ai-02-deeplearning-basics", "track": "05-ai-ml", "level": 2, "path": "05-ai-ml/ai-02-deeplearning-basics.md", "title": "Core Skills: Training Loops, Regularization, Embeddings" },
+  { "id": "ai-03-project-mlapp", "track": "05-ai-ml", "level": 3, "path": "05-ai-ml/ai-03-project-mlapp.md", "title": "Milestone: Simple ML App or RAG Demo with Evaluation" },
+
+  { "id": "sec-00-basics", "track": "06-cyber-security", "level": 0, "path": "06-cyber-security/sec-00-basics.md", "title": "From Zero: Security Mindset, Networking, and Linux Basics" },
+  { "id": "sec-01-web-owasp", "track": "06-cyber-security", "level": 1, "path": "06-cyber-security/sec-01-web-owasp.md", "title": "Foundations: OWASP Top 10 Overview + Secure Auth Basics" },
+  { "id": "sec-02-blue-team", "track": "06-cyber-security", "level": 2, "path": "06-cyber-security/sec-02-blue-team.md", "title": "Core Skills: Hardening, Patching, Secrets, Logging" },
+  { "id": "sec-03-project-harden-app", "track": "06-cyber-security", "level": 3, "path": "06-cyber-security/sec-03-project-harden-app.md", "title": "Milestone: Harden a Small Web App (Legal Lab Only)" }
 ]
