@@ -3,8 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "validate": "ts-node scripts/validate_catalog.ts",
-    "toc": "ts-node scripts/build_toc.ts",
+    "validate": "node --loader ts-node/esm scripts/validate_catalog.ts",
+    "toc": "node --loader ts-node/esm scripts/build_toc.ts",
     "check": "npm run validate && npm run toc"
   },
   "devDependencies": {
