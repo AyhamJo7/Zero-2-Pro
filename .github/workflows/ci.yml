@@ -53,10 +53,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Install deps (ajv, ts-node)
-        run: |
-          npm i -g ajv-cli@5 ts-node@10 typescript@5
-      - name: Validate catalog (if present)
-        run: npx ts-node scripts/validate_catalog.ts
-      - name: Build TOCs (stub, no-op until populated)
-        run: npx ts-node scripts/build_toc.ts
+      - name: Install deps
+        run: npm ci
+      - name: Validate catalog
+        run: npm run validate
+      - name: Build TOCs
+        run: npm run toc
