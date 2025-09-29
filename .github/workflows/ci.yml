@@ -59,3 +59,7 @@ jobs:
         run: npm run validate
       - name: Build TOCs
         run: npm run toc
+      - name: Verify TOCs up-to-date
+        run: |
+          git status --porcelain
+          git diff --quiet || (echo "TOCs are out of date. Run 'npm run toc' and commit." && git --no-pager diff && exit 1)
