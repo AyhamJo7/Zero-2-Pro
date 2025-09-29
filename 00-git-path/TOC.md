@@ -14,3 +14,7 @@
 - [Rebase Safely: interactive rebase, fixups, autosquash](git-05-rebase-conflicts.md) `(git-05-rebase-conflicts)`
 - [Remotes & GitHub: clone, fetch, pull, push, PR](git-04-remotes-github.md) `(git-04-remotes-github)`
 - [Time Travel: log formats, blame, bisect, tags](git-06-history-tools.md) `(git-06-history-tools)`
+
+## Level 4 — Advanced
+
+- [Advanced: Worktrees, Sparse Checkout, Submodules, and Bisect Automation](git-07-advanced-workflows.md) `(git-07-advanced-workflows)`
