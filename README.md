@@ -1,6 +1,7 @@
 # Zero-to-Pro Developer Roadmap
 
 [![CI](https://img.shields.io/github/actions/workflow/status/AyhamJo7/Zero-2-Pro/ci.yml?branch=main)](https://github.com/AyhamJo7/Zero-2-Pro/actions/workflows/ci.yml)
+[![Docs Deploy](https://img.shields.io/github/actions/workflow/status/AyhamJo7/Zero-2-Pro/pages.yml?branch=main&label=Pages)](https://github.com/AyhamJo7/Zero-2-Pro/actions/workflows/pages.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSES/MIT.txt)
 [![CC BY 4.0](https://img.shields.io/badge/Content-CC%20BY%204.0-lightgrey.svg)](LICENSES/CC-BY-4.0.txt)
 
