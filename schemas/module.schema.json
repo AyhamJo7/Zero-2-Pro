@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/module.schema.json",
+  "title": "Learning Module Front-Matter",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "track", "level", "title", "outcomes", "assessment"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "Unique slug, e.g., git-01-intro"
+    },
+    "track": {
+      "type": "string",
+      "enum": [
+        "00-git-path",
+        "01-web-development",
+        "02-python",
+        "03-java",
+        "04-go",
+        "05-ai-ml",
+        "06-cyber-security"
+      ]
+    },
+    "level": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4,
+      "description": "0=Zero, 1=Foundations, 2=Core, 3=Projects, 4=Advanced"
+    },
+    "title": { "type": "string", "minLength": 3 },
+    "time": {
+      "type": "string",
+      "description": "Rough duration, e.g., '2-3h'"
+    },
+    "prerequisites": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true,
+      "default": []
+    },
+    "outcomes": {
+      "type": "array",
+      "minItems": 3,
+      "items": { "type": "string", "minLength": 3 },
+      "description": "What the learner can do after completion"
+    },
+    "assessment": {
+      "type": "object",
+      "required": ["type"],
+      "additionalProperties": true,
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["proof-of-work", "quiz", "project", "reflection"]
+        },
+        "deliverable": { "type": "string" },
+        "rubric_ref": { "type": "string" }
+      },
+      "description": "How learning is verified"
+    },
+    "resources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["label", "url"],
+        "additionalProperties": false,
+        "properties": {
+          "label": { "type": "string" },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "notes": { "type": "string" }
+        }
+      },
+      "default": []
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true,
+      "default": []
+    }
+  }
+}

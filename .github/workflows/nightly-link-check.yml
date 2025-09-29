@@ -1,0 +1,29 @@
+name: Nightly Link Check
+
+on:
+  schedule:
+    - cron: "17 2 * * *"  # daily at 02:17 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  link-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run Lychee link checker (thorough)
+        uses: lycheeverse/lychee-action@v1.11.0
+        with:
+          args: >
+            --accept 200,206,429
+            --exclude-mail
+            --no-progress
+            --max-concurrency 6
+            --retry-wait-time 2
+            --retry-count 2
+            .
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

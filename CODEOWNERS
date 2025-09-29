@@ -1,0 +1,22 @@
+# Global ownership
+* @maintainers-team
+
+# Track-specific ownership
+00-git-path/ @git-experts @maintainers-team
+01-web-development/ @web-dev-team @maintainers-team
+02-python/ @python-team @maintainers-team
+03-java/ @java-team @maintainers-team
+04-go/ @go-team @maintainers-team
+05-ai-ml/ @ai-ml-team @maintainers-team
+06-cyber-security/ @security-team @maintainers-team
+
+# Infrastructure and automation
+.github/ @maintainers-team
+schemas/ @maintainers-team
+scripts/ @maintainers-team
+docs/_meta/ @maintainers-team
+
+# Documentation
+README.md @maintainers-team
+CONTRIBUTING.md @maintainers-team
+CODE_OF_CONDUCT.md @maintainers-team

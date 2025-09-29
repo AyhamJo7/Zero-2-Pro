@@ -1,0 +1,65 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  markdown-lint:
+    name: Markdown Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Lint Markdown
+        uses: DavidAnson/markdownlint-cli2-action@v16
+        with:
+          globs: |
+            **/*.md
+          # You can add a .markdownlint.json later to customize rules.
+
+  link-check:
+    name: Link Checker (fast)
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run Lychee link checker
+        uses: lycheeverse/lychee-action@v1.11.0
+        with:
+          args: >
+            --accept 200,206,429
+            --exclude-mail
+            --exclude-file .lycheeignore
+            --no-progress
+            --max-concurrency 8
+            .
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  schema-validate:
+    name: Schema & Catalog Validate (conditional)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Use Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install deps (ajv, ts-node)
+        run: |
+          npm --version
+          npm i -g ajv-cli@5 ts-node@10 typescript@5
+      - name: Validate module schemas (only if schemas exist)
+        if: ${{ hashFiles('schemas/**/*.json') != '' }}
+        run: |
+          echo "Schemas found, running AJV validation once Step 3 adds schema & sample files."
+          # Placeholder; will be replaced in Step 3 to validate front-matter JSON.
+          echo "OK"
