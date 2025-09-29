@@ -1,1 +1,44 @@
-[]
+[
+  {
+    "id": "git-01-intro",
+    "track": "00-git-path",
+    "level": 0,
+    "path": "00-git-path/git-01-intro.md",
+    "title": "Git from Absolute Zero: Concepts & Setup"
+  },
+  {
+    "id": "git-02-first-commit",
+    "track": "00-git-path",
+    "level": 1,
+    "path": "00-git-path/git-02-first-commit.md",
+    "title": "Local Basics: init, status, add, commit, log"
+  },
+  {
+    "id": "git-03-branches-merges",
+    "track": "00-git-path",
+    "level": 1,
+    "path": "00-git-path/git-03-branches-merges.md",
+    "title": "Branches & Merges: Fast-forward, Three-way"
+  },
+  {
+    "id": "git-04-remotes-github",
+    "track": "00-git-path",
+    "level": 2,
+    "path": "00-git-path/git-04-remotes-github.md",
+    "title": "Remotes & GitHub: clone, fetch, pull, push, PR"
+  },
+  {
+    "id": "git-05-rebase-conflicts",
+    "track": "00-git-path",
+    "level": 2,
+    "path": "00-git-path/git-05-rebase-conflicts.md",
+    "title": "Rebase Safely: interactive rebase, fixups, autosquash"
+  },
+  {
+    "id": "git-06-history-tools",
+    "track": "00-git-path",
+    "level": 2,
+    "path": "00-git-path/git-06-history-tools.md",
+    "title": "Time Travel: log formats, blame, bisect, tags"
+  }
+]
