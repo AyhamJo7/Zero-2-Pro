@@ -1,0 +1,78 @@
+# --- OS cruft ---
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# --- Logs ---
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# --- Node / TypeScript tooling ---
+node_modules/
+dist/
+build/
+coverage/
+.nyc_output/
+.cache/
+.tmp/
+*.tsbuildinfo
+
+# --- Env files (keep examples) ---
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# --- Editors / IDEs ---
+.vscode/
+.idea/
+*.iml
+.history/
+*.swp
+*.swo
+
+# --- Python (for sample projects) ---
+__pycache__/
+*.py[cod]
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+env/
+pip-wheel-metadata/
+.ipynb_checkpoints/
+
+# --- Java (for sample projects) ---
+target/
+.gradle/
+build/
+out/
+.classpath
+.project
+.settings/
+
+# --- Go (for sample projects) ---
+bin/
+*.test
+vendor/
+
+# --- Frontend frameworks (if used in examples) ---
+.next/
+.nuxt/
+.svelte-kit/
+.vite/
+.docusaurus/
+site/                  # MkDocs build output
+public/build/
+
+# --- Merge/patch artifacts ---
+*.orig
+*.rej
+
+# --- Keep placeholders & docs tracked ---
+!.gitkeep
+!**/TOC.md
