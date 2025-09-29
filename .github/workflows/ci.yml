@@ -21,7 +21,7 @@ jobs:
         with:
           globs: |
             **/*.md
-          # You can add a .markdownlint.json later to customize rules.
+          config: .markdownlint.json
 
   link-check:
     name: Link Checker (fast)
@@ -44,7 +44,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   schema-validate:
-    name: Schema & Catalog Validate (conditional)
+    name: Schema & Catalog Validate
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -55,11 +55,8 @@ jobs:
           node-version: '20'
       - name: Install deps (ajv, ts-node)
         run: |
-          npm --version
           npm i -g ajv-cli@5 ts-node@10 typescript@5
-      - name: Validate module schemas (only if schemas exist)
-        if: ${{ hashFiles('schemas/**/*.json') != '' }}
-        run: |
-          echo "Schemas found, running AJV validation once Step 3 adds schema & sample files."
-          # Placeholder; will be replaced in Step 3 to validate front-matter JSON.
-          echo "OK"
+      - name: Validate catalog (if present)
+        run: npx ts-node scripts/validate_catalog.ts
+      - name: Build TOCs (stub, no-op until populated)
+        run: npx ts-node scripts/build_toc.ts
