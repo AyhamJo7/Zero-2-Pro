@@ -1,5 +1,9 @@
 # Zero-to-Pro Developer Roadmap
 
+[![CI](https://img.shields.io/github/actions/workflow/status/AyhamJo7/Zero-2-Pro/ci.yml?branch=main)](https://github.com/AyhamJo7/Zero-2-Pro/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSES/MIT.txt)
+[![CC BY 4.0](https://img.shields.io/badge/Content-CC%20BY%204.0-lightgrey.svg)](LICENSES/CC-BY-4.0.txt)
+
 A comprehensive, multi-track learning roadmap for aspiring developers. Master the fundamentals through hands-on projects and proof-of-work assessments.
 
 ## 🎯 Philosophy
@@ -62,6 +66,19 @@ We welcome contributions! See [CONTRIBUTING.md](./CONTRIBUTING.md) for guideline
 - **Issues:** Use GitHub Issues for bugs and feature requests
 - **Discussions:** Join GitHub Discussions for learning support
 - **Code of Conduct:** Please review our [Code of Conduct](./CODE_OF_CONDUCT.md)
+
+## 🛠️ One-time setup commands
+
+```bash
+# In your repo root
+npm install
+
+# Generate TOCs now (and on demand)
+npm run toc
+
+# Validate catalog structure
+npm run validate
+```
 
 ---
 

@@ -1,0 +1,14 @@
+{
+  "name": "zero-2-pro",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate": "ts-node scripts/validate_catalog.ts",
+    "toc": "ts-node scripts/build_toc.ts",
+    "check": "npm run validate && npm run toc"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  }
+}
