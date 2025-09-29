@@ -1,6 +1,27 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
+set -eu
 
-echo "➡️  pre-commit: lint-staged + repo checks"
-npx lint-staged
-npm run check
+# If running under WSL, drop Windows paths to avoid UNC issues
+if grep -qi microsoft /proc/version 2>/dev/null; then
+  NEWPATH=""
+  OLDIFS=$IFS
+  IFS=":"
+  for p in $PATH; do
+    case "$p" in
+      /mnt/c/*) : ;;  # skip Windows paths
+      *) NEWPATH="${NEWPATH:+$NEWPATH:}$p" ;;
+    esac
+  done
+  IFS=$OLDIFS
+  PATH="$NEWPATH"
+  export PATH
+fi
+
+# Ensure repo root and local node bins first
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+cd "$REPO_ROOT"
+PATH="$REPO_ROOT/node_modules/.bin:$PATH"
+export PATH
+
+echo "➡️  pre-commit: lint-staged + validate"
+lint-staged
+tsx scripts/validate_catalog.ts

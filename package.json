@@ -17,7 +17,12 @@
   },
   "lint-staged": {
     "**/*.md": "markdownlint-cli2",
-    "docs/_meta/catalog.json": "npm run validate",
-    "*": "git add"
+    "docs/_meta/catalog.json": "tsx scripts/validate_catalog.ts",
+    "**/*": {
+      "md": "markdownlint-cli2"
+    },
+    "docs/_meta/catalog": {
+      "json": "tsx scripts/validate_catalog.ts"
+    }
   }
 }
