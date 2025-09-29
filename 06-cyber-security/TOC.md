@@ -15,3 +15,7 @@
 ## Level 3 — Projects
 
 - [Milestone: Harden a Small Web App (Legal Lab Only)](sec-03-project-harden-app.md) `(sec-03-project-harden-app)`
+
+## Level 4 — Advanced
+
+- [Advanced: Hardening Playbook & Threat Modeling (Lab)](sec-04-hardening-playbook.md) `(sec-04-hardening-playbook)`
