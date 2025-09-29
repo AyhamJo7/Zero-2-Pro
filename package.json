@@ -5,7 +5,10 @@
   "scripts": {
     "validate": "tsx scripts/validate_catalog.ts",
     "toc": "tsx scripts/build_toc.ts",
-    "check": "npm run validate && npm run toc"
+    "check": "npm run validate && npm run toc",
+    "docs:buildpages": "tsx scripts/build_docs.ts",
+    "site:build": "npm run docs:buildpages && mkdocs build --strict",
+    "site:serve": "npm run docs:buildpages && mkdocs serve -a 0.0.0.0:8000"
   },
   "devDependencies": {
     "husky": "^9.1.6",
