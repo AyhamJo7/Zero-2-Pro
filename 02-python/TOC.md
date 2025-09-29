@@ -15,3 +15,7 @@
 ## Level 3 — Projects
 
 - [Milestone: CLI Utility with Tests and Release](py-03-project-cli.md) `(py-03-project-cli)`
+
+## Level 4 — Advanced
+
+- [Advanced: Async IO, Concurrency, and Profiling](py-04-advanced-async-performance.md) `(py-04-advanced-async-performance)`
