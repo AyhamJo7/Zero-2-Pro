@@ -15,3 +15,7 @@
 ## Level 3 — Projects
 
 - [Milestone: SPA + API with Auth and Tests](web-03-project-spa-api.md) `(web-03-project-spa-api)`
+
+## Level 4 — Advanced
+
+- [Advanced: Web Performance & Observability (CWV, bundling, budgets)](web-04-advanced-performance.md) `(web-04-advanced-performance)`
