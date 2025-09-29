@@ -1,0 +1,28 @@
+site_name: Zero-to-Pro Roadmap
+site_url: https://ayhamjo7.github.io/Zero-2-Pro/
+repo_url: https://github.com/AyhamJo7/Zero-2-Pro
+repo_name: AyhamJo7/Zero-2-Pro
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - content.code.copy
+    - content.action.edit
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/AyhamJo7/Zero-2-Pro
+nav:
+  - Home: index.md
+  - Tracks:
+      - Overview: tracks/index.md
+      # Per-track pages are generated into docs/tracks/*.md (see script below)
+markdown_extensions:
+  - toc:
+      permalink: true
+  - admonition
+  - def_list
+  - footnotes
+  - tables
+  - attr_list
