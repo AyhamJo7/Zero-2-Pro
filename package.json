@@ -3,12 +3,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "validate": "node --loader ts-node/esm scripts/validate_catalog.ts",
-    "toc": "node --loader ts-node/esm scripts/build_toc.ts",
+    "validate": "tsx scripts/validate_catalog.ts",
+    "toc": "tsx scripts/build_toc.ts",
     "check": "npm run validate && npm run toc"
   },
   "devDependencies": {
     "ts-node": "^10.9.2",
+    "tsx": "^4.20.6",
     "typescript": "^5.6.3"
   }
 }
