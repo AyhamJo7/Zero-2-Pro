@@ -34,5 +34,13 @@
   { "id": "sec-00-basics", "track": "06-cyber-security", "level": 0, "path": "06-cyber-security/sec-00-basics.md", "title": "From Zero: Security Mindset, Networking, and Linux Basics" },
   { "id": "sec-01-web-owasp", "track": "06-cyber-security", "level": 1, "path": "06-cyber-security/sec-01-web-owasp.md", "title": "Foundations: OWASP Top 10 Overview + Secure Auth Basics" },
   { "id": "sec-02-blue-team", "track": "06-cyber-security", "level": 2, "path": "06-cyber-security/sec-02-blue-team.md", "title": "Core Skills: Hardening, Patching, Secrets, Logging" },
-  { "id": "sec-03-project-harden-app", "track": "06-cyber-security", "level": 3, "path": "06-cyber-security/sec-03-project-harden-app.md", "title": "Milestone: Harden a Small Web App (Legal Lab Only)" }
+  { "id": "sec-03-project-harden-app", "track": "06-cyber-security", "level": 3, "path": "06-cyber-security/sec-03-project-harden-app.md", "title": "Milestone: Harden a Small Web App (Legal Lab Only)" },
+
+  { "id": "web-04-advanced-performance", "track": "01-web-development", "level": 4, "path": "01-web-development/web-04-advanced-performance.md", "title": "Advanced: Web Performance & Observability (CWV, bundling, budgets)" },
+  { "id": "py-04-advanced-async-performance", "track": "02-python", "level": 4, "path": "02-python/py-04-advanced-async-performance.md", "title": "Advanced: Async IO, Concurrency, and Profiling" },
+  { "id": "java-04-advanced-resilience", "track": "03-java", "level": 4, "path": "03-java/java-04-advanced-resilience.md", "title": "Advanced: Resilient Services (timeouts, retries, circuit breakers) & Observability" },
+  { "id": "go-04-advanced-concurrency", "track": "04-go", "level": 4, "path": "04-go/go-04-advanced-concurrency.md", "title": "Advanced: Concurrency Patterns, Context, and Backpressure" },
+  { "id": "ai-04-rag-eval-guardrails", "track": "05-ai-ml", "level": 4, "path": "05-ai-ml/ai-04-rag-eval-guardrails.md", "title": "Advanced: RAG Evaluation, Guardrails, and Observability" },
+  { "id": "sec-04-hardening-playbook", "track": "06-cyber-security", "level": 4, "path": "06-cyber-security/sec-04-hardening-playbook.md", "title": "Advanced: Hardening Playbook & Threat Modeling (Lab)" },
+  { "id": "git-07-advanced-workflows", "track": "00-git-path", "level": 4, "path": "00-git-path/git-07-advanced-workflows.md", "title": "Advanced: Worktrees, Sparse Checkout, Submodules, and Bisect Automation" }
 ]
