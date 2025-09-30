@@ -208,7 +208,8 @@ async function main(): Promise<number> {
 
     // Generate track overview page
     const overviewContent = generateTrackOverview(tracks, useCards);
-    await writeFile(join(tracksDir, 'index.md'), overviewContent);
+    const overviewOut = overviewContent.replace(/\n{3,}/g, "\n\n");
+    await writeFile(join(tracksDir, 'index.md'), overviewOut);
 
     // Generate individual track pages
     for (const track of tracks) {
@@ -217,7 +218,8 @@ async function main(): Promise<number> {
         ? generateCardsTrackPage(track)
         : generateListTrackPage(track);
 
-      await writeFile(join(tracksDir, trackFileName), trackContent);
+      const pageOut = trackContent.replace(/\n{3,}/g, "\n\n");
+      await writeFile(join(tracksDir, trackFileName), pageOut);
       console.log(`  ✅ Generated ${trackFileName}`);
     }
 

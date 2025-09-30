@@ -1,0 +1,16 @@
+{
+  "globs": ["**/*.md"],
+  "ignores": ["node_modules", ".github", "site", "docs/badges"],
+  "config": {
+    "default": true,
+    "MD013": false,
+    "MD025": false,
+    "MD033": false,
+    "MD047": false,
+    "MD012": false,
+    "MD032": false,
+    "MD024": false,
+    "MD046": false,
+    "MD026": false
+  }
+}

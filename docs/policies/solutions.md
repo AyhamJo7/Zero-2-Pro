@@ -115,7 +115,7 @@ All reference solutions undergo:
 
 ## Repository Structure
 
-```
+```bash
 reference-solutions/
 ├── 01-web-development/
 │   ├── web-03-spa-api/

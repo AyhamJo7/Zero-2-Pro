@@ -41,4 +41,3 @@ Learn python from zero to production-ready skills through structured, hands-on m
 - **Modules**: 5
 - **Levels**: 5
 - **Format**: Self-paced with milestones
-
