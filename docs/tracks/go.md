@@ -8,31 +8,31 @@ Learn go from zero to production-ready skills through structured, hands-on modul
 
 **Level 0** • Getting started and setup
 
-[Start Module →](../04-go/go-00-setup.md)
+[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/04-go/go-00-setup.md)
 
 ### Foundations: Foundations: Types, Errors, Testing, Packages
 
 **Level 1** • Core concepts and basics
 
-[Start Module →](../04-go/go-01-foundations.md)
+[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/04-go/go-01-foundations.md)
 
 ### Core Skills: Core Skills: HTTP Services + Goroutines & Channels
 
 **Level 2** • Practical application
 
-[Start Module →](../04-go/go-02-core-concurrency.md)
+[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/04-go/go-02-core-concurrency.md)
 
 ### Project: Milestone: Production-ish Go Service
 
 **Level 3** • Real-world milestone
 
-[Start Module →](../04-go/go-03-project-service.md)
+[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/04-go/go-03-project-service.md)
 
 ### Advanced: Advanced: Concurrency Patterns, Context, and Backpressure
 
 **Level 4** • Production-ready expertise
 
-[Start Module →](../04-go/go-04-advanced.md)
+[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/04-go/go-04-advanced.md)
 
 ---
 

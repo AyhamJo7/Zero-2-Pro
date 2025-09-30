@@ -21,13 +21,28 @@ nav:
   - Home: index.md
   - Tracks:
       - Overview: tracks/index.md
-      # Per-track pages are generated into docs/tracks/*.md (see script below)
+      - 00 — Git Path: tracks/git-path.md
+      - 01 — Web Development: tracks/web-development.md
+      - 02 — Python: tracks/python.md
+      - 03 — Java: tracks/java.md
+      - 04 — Go: tracks/go.md
+      - 05 — AI/ML: tracks/ai-ml.md
+      - 06 — Cyber Security: tracks/cyber-security.md
+  - Challenges:
+      - Web Development: 01-web-development/challenges/README.md
+      - Python: 02-python/challenges/README.md
+      - Java: 03-java/challenges/README.md
+      - Go: 04-go/challenges/README.md
+      - AI/ML: 05-ai-ml/challenges/README.md
+      - Cyber Security: 06-cyber-security/challenges/README.md
   - Contributing:
       - Contributor Guide (GitHub): https://github.com/AyhamJo7/Zero-2-Pro/blob/main/CONTRIBUTING.md
       - Code of Conduct (GitHub): https://github.com/AyhamJo7/Zero-2-Pro/blob/main/CODE_OF_CONDUCT.md
       - Rubrics:
           - Level Rubric: _meta/rubrics/level_rubric.md
           - Project Rubric: _meta/rubrics/project_rubric.md
+  - Policies:
+      - Reference Solutions: policies/solutions.md
   - Changelog: changelog.md
 markdown_extensions:
   - toc:

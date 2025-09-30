@@ -8,31 +8,31 @@ Learn python from zero to production-ready skills through structured, hands-on m
 
 **Level 0** • Getting started and setup
 
-[Start Module →](../02-python/py-00-setup.md)
+[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/02-python/py-00-setup.md)
 
 ### Foundations: Foundations: Types, Control Flow, Functions, Modules
 
 **Level 1** • Core concepts and basics
 
-[Start Module →](../02-python/py-01-foundations.md)
+[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/02-python/py-01-foundations.md)
 
 ### Core Skills: Core Skills: Packaging, Testing (pytest), Logging, CLI
 
 **Level 2** • Practical application
 
-[Start Module →](../02-python/py-02-core-tooling.md)
+[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/02-python/py-02-core-tooling.md)
 
 ### Project: Milestone: CLI Utility with Tests and Release
 
 **Level 3** • Real-world milestone
 
-[Start Module →](../02-python/py-03-project-cli.md)
+[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/02-python/py-03-project-cli.md)
 
 ### Advanced: Advanced: Async IO, Concurrency, and Profiling
 
 **Level 4** • Production-ready expertise
 
-[Start Module →](../02-python/py-04-advanced.md)
+[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/02-python/py-04-advanced.md)
 
 ---
 

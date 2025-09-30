@@ -8,31 +8,31 @@ Learn ai/ml from zero to production-ready skills through structured, hands-on mo
 
 **Level 0** • Getting started and setup
 
-[Start Module →](../05-ai-ml/ai-00-math-python.md)
+[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/05-ai-ml/ai-00-math-python.md)
 
 ### Foundations: Foundations: ML Workflow + Classical Models
 
 **Level 1** • Core concepts and basics
 
-[Start Module →](../05-ai-ml/ai-01-classical-ml.md)
+[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/05-ai-ml/ai-01-classical-ml.md)
 
 ### Core Skills: Core Skills: Training Loops, Regularization, Embeddings
 
 **Level 2** • Practical application
 
-[Start Module →](../05-ai-ml/ai-02-deeplearning-basics.md)
+[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/05-ai-ml/ai-02-deeplearning-basics.md)
 
 ### Project: Milestone: Simple ML App or RAG Demo with Evaluation
 
 **Level 3** • Real-world milestone
 
-[Start Module →](../05-ai-ml/ai-03-project-mlapp.md)
+[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/05-ai-ml/ai-03-project-mlapp.md)
 
 ### Advanced: Advanced: RAG Evaluation, Guardrails, and Observability
 
 **Level 4** • Production-ready expertise
 
-[Start Module →](../05-ai-ml/ai-04-advanced.md)
+[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/05-ai-ml/ai-04-advanced.md)
 
 ---
 

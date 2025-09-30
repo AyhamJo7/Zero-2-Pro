@@ -8,31 +8,31 @@ Learn java from zero to production-ready skills through structured, hands-on mod
 
 **Level 0** • Getting started and setup
 
-[Start Module →](../03-java/java-00-setup.md)
+[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/03-java/java-00-setup.md)
 
 ### Foundations: Foundations: OOP, Collections, Exceptions, I/O
 
 **Level 1** • Core concepts and basics
 
-[Start Module →](../03-java/java-01-foundations.md)
+[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/03-java/java-01-foundations.md)
 
 ### Core Skills: Core Skills: Build a Minimal REST API + Tests
 
 **Level 2** • Practical application
 
-[Start Module →](../03-java/java-02-core-rest.md)
+[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/03-java/java-02-core-rest.md)
 
 ### Project: Milestone: Production-ish Service (Logging, Health, Dockerfile)
 
 **Level 3** • Real-world milestone
 
-[Start Module →](../03-java/java-03-project-service.md)
+[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/03-java/java-03-project-service.md)
 
 ### Advanced: Advanced: Resilient Services & Observability
 
 **Level 4** • Production-ready expertise
 
-[Start Module →](../03-java/java-04-advanced.md)
+[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/03-java/java-04-advanced.md)
 
 ---
 

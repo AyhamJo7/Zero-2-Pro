@@ -103,7 +103,8 @@ function generateListTrackPage(track: Track): string {
     const levelInfo = getLevelInfo(module.level);
     content += `### ${levelInfo.badge}: ${module.title}\n\n`;
     content += `**Level ${module.level}** • ${levelInfo.description}\n\n`;
-    content += `[Start Module →](../${module.path})\n\n`;
+    const gh = `https://github.com/AyhamJo7/Zero-2-Pro/blob/main/${module.path}`;
+    content += `[Start Module →](${gh})\n\n`;
   }
 
   content += `---\n\n`;
@@ -133,7 +134,8 @@ function generateCardsTrackPage(track: Track): string {
     content += `    ### ${module.title}\n\n`;
     content += `    ${levelInfo.description}\n\n`;
     content += `    **Level ${module.level}**\n\n`;
-    content += `    [Start Module :material-arrow-right:](../${module.path})\n\n`;
+    const gh = `https://github.com/AyhamJo7/Zero-2-Pro/blob/main/${module.path}`;
+    content += `    [Start Module :material-arrow-right:](${gh})\n\n`;
   }
 
   content += `</div>\n\n`;
