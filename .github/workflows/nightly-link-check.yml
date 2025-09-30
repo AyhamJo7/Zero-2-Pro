@@ -37,6 +37,8 @@ jobs:
             --accept 200,206,429
             --max-concurrency 6
             --retry-wait-time 2
+            --exclude-path 'site/'
+            --exclude-path 'docs/badges/'
             ./**/*.md
             ./**/*.html
           fail: true
