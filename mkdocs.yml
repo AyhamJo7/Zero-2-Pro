@@ -35,6 +35,8 @@ nav:
       - Go: 04-go/challenges/README.md
       - AI/ML: 05-ai-ml/challenges/README.md
       - Cyber Security: 06-cyber-security/challenges/README.md
+  - Community:
+      - Progress Dashboard: progress/index.md
   - Contributing:
       - Contributor Guide (GitHub): https://github.com/AyhamJo7/Zero-2-Pro/blob/main/CONTRIBUTING.md
       - Code of Conduct (GitHub): https://github.com/AyhamJo7/Zero-2-Pro/blob/main/CODE_OF_CONDUCT.md

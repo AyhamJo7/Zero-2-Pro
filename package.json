@@ -7,6 +7,7 @@
     "toc": "tsx scripts/build_toc.ts",
     "check": "npm run validate && npm run toc",
     "docs:buildpages": "tsx scripts/build_docs.ts",
+    "progress:render": "tsx scripts/render_progress.ts",
     "site:build": "npm run docs:buildpages && mkdocs build --strict",
     "site:serve": "npm run docs:buildpages && mkdocs serve -a 0.0.0.0:8000",
     "lint:frontmatter": "tsx scripts/lint_frontmatter.ts",

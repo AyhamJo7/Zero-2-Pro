@@ -1,0 +1,218 @@
+name: Progress Collector & Badges
+
+on:
+  issues:
+    types: [opened, edited, labeled, unlabeled, reopened, closed]
+  schedule:
+    - cron: '0 */6 * * *' # Every 6 hours
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: read
+
+jobs:
+  collect-and-update:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || (github.event_name == 'issues' && contains(github.event.issue.labels.*.name, 'progress'))
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Collect progress data
+        id: collect
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs').promises;
+            const path = require('path');
+
+            console.log('📊 Collecting progress data...');
+
+            // Load catalog to map modules to levels
+            const catalogPath = path.join(process.cwd(), 'docs/_meta/catalog.json');
+            const catalog = JSON.parse(await fs.readFile(catalogPath, 'utf-8'));
+
+            // Build module lookup: moduleId -> {track, level}
+            const moduleLookup = {};
+            catalog.forEach(mod => {
+              moduleLookup[mod.id] = { track: mod.track, level: mod.level };
+            });
+
+            // Group catalog by track and level for completion checking
+            const trackLevels = {};
+            catalog.forEach(mod => {
+              const key = `${mod.track}:${mod.level}`;
+              if (!trackLevels[key]) trackLevels[key] = [];
+              trackLevels[key].push(mod.id);
+            });
+
+            // Fetch all open issues with 'progress' label
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: 'progress',
+              state: 'open',
+              per_page: 100
+            });
+
+            console.log(`Found ${issues.length} progress issues`);
+
+            const learners = [];
+
+            for (const issue of issues) {
+              const author = issue.user.login;
+              const body = issue.body || '';
+
+              // Parse checkboxes: - [x] module-id
+              const checkboxRegex = /^[\s-]*\[x\]\s+([a-z0-9-]+)/gim;
+              const matches = [...body.matchAll(checkboxRegex)];
+              const checkedModules = matches
+                .map(m => m[1].trim().replace(/`/g, ''))
+                .filter(id => moduleLookup[id]); // Only valid module IDs
+
+              // Determine which tracks this learner is following
+              const tracksInProgress = new Set();
+              checkedModules.forEach(id => {
+                if (moduleLookup[id]) {
+                  tracksInProgress.add(moduleLookup[id].track);
+                }
+              });
+
+              // Compute per-level completion across selected tracks
+              const levels = {};
+              for (let level = 0; level <= 4; level++) {
+                let allComplete = false;
+
+                if (tracksInProgress.size > 0) {
+                  // Check if ALL modules at this level across ALL selected tracks are checked
+                  const requiredModules = [];
+                  tracksInProgress.forEach(track => {
+                    const key = `${track}:${level}`;
+                    if (trackLevels[key]) {
+                      requiredModules.push(...trackLevels[key]);
+                    }
+                  });
+
+                  if (requiredModules.length > 0) {
+                    allComplete = requiredModules.every(id => checkedModules.includes(id));
+                  }
+                }
+
+                levels[level] = allComplete;
+              }
+
+              // Check which badges have been awarded
+              // Fetch comments to see if badge marker exists
+              const { data: comments } = await github.rest.issues.listComments({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                per_page: 100
+              });
+
+              const awarded = {};
+              for (let level = 0; level <= 4; level++) {
+                const marker = `<!--badge:L${level}-->`;
+                awarded[`L${level}`] = comments.some(c => c.body.includes(marker));
+              }
+
+              learners.push({
+                issueNumber: issue.number,
+                url: issue.html_url,
+                author,
+                levels,
+                totalChecked: checkedModules.length,
+                updatedAt: issue.updated_at,
+                awarded
+              });
+            }
+
+            // Write progress.json
+            const progressData = {
+              generatedAt: new Date().toISOString(),
+              learners
+            };
+
+            const dataDir = path.join(process.cwd(), 'docs/_data');
+            await fs.mkdir(dataDir, { recursive: true });
+            await fs.writeFile(
+              path.join(dataDir, 'progress.json'),
+              JSON.stringify(progressData, null, 2),
+              'utf-8'
+            );
+
+            console.log(`✅ Collected data for ${learners.length} learners`);
+
+            // Store learners in output for badge step
+            core.setOutput('learners', JSON.stringify(learners));
+
+      - name: Render progress dashboard
+        run: npm run progress:render
+
+      - name: Award badges
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const learners = JSON.parse('${{ steps.collect.outputs.learners }}' || '[]');
+
+            console.log('🏅 Checking for new badge awards...');
+
+            const badgeTemplates = {
+              0: '🎉 **Level 0 complete!** Here\'s your badge:\n\n![Level 0](https://raw.githubusercontent.com/AyhamJo7/Zero-2-Pro/main/docs/badges/level-0.svg)\n\n_Congratulations on completing Orientation! Add this badge to your README or profile._',
+              1: '🎉 **Level 1 complete!** Here\'s your badge:\n\n![Level 1](https://raw.githubusercontent.com/AyhamJo7/Zero-2-Pro/main/docs/badges/level-1.svg)\n\n_Great work mastering the Foundations! Add this badge to your README or profile._',
+              2: '🎉 **Level 2 complete!** Here\'s your badge:\n\n![Level 2](https://raw.githubusercontent.com/AyhamJo7/Zero-2-Pro/main/docs/badges/level-2.svg)\n\n_Excellent progress on Core Skills! Add this badge to your README or profile._',
+              3: '🎉 **Level 3 complete!** Here\'s your badge:\n\n![Level 3](https://raw.githubusercontent.com/AyhamJo7/Zero-2-Pro/main/docs/badges/level-3.svg)\n\n_Amazing! You\'ve completed a major Project Milestone! Add this badge to your README or profile._',
+              4: '🎉 **Level 4 complete!** Here\'s your badge:\n\n![Level 4](https://raw.githubusercontent.com/AyhamJo7/Zero-2-Pro/main/docs/badges/level-4.svg)\n\n_🏆 Outstanding! You\'ve mastered Advanced topics! Add this badge to your README or profile._'
+            };
+
+            let badgesAwarded = 0;
+
+            for (const learner of learners) {
+              for (let level = 0; level <= 4; level++) {
+                const isComplete = learner.levels[level];
+                const alreadyAwarded = learner.awarded[`L${level}`];
+
+                if (isComplete && !alreadyAwarded) {
+                  const marker = `<!--badge:L${level}-->`;
+                  const body = marker + '\n' + badgeTemplates[level];
+
+                  try {
+                    await github.rest.issues.createComment({
+                      owner: context.repo.owner,
+                      repo: context.repo.repo,
+                      issue_number: learner.issueNumber,
+                      body
+                    });
+
+                    console.log(`✅ Awarded L${level} badge to @${learner.author} (issue #${learner.issueNumber})`);
+                    badgesAwarded++;
+                  } catch (error) {
+                    console.error(`❌ Failed to award badge: ${error.message}`);
+                  }
+                }
+              }
+            }
+
+            console.log(`🏅 Total badges awarded: ${badgesAwarded}`);
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore(progress): update dashboard & data'
+          file_pattern: 'docs/_data/progress.json docs/progress/index.md'
+          commit_user_name: 'github-actions[bot]'
+          commit_user_email: 'github-actions[bot]@users.noreply.github.com'
