@@ -37,7 +37,6 @@ jobs:
             --accept 200,206,429
             --max-concurrency 6
             --retry-wait-time 2
-            --retry-count 2
             ./**/*.md
             ./**/*.html
           fail: true

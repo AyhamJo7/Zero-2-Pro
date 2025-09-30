@@ -44,7 +44,6 @@ jobs:
           args: >-
             --cache
             --accept 200,206,429
-            --exclude-file .lycheeignore
             --no-progress
             --max-concurrency 8
             .

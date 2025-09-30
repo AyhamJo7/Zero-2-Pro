@@ -4,3 +4,10 @@ http://localhost
 https://localhost
 http://127.0.0.1
 https://127.0.0.1
+http://0.0.0.0
+
+# GitHub anchors often 429 under CI
+https://github.com/*#*
+
+# Shields.io badges can throttle
+https://img.shields.io/*
