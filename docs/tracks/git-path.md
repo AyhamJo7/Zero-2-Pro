@@ -47,4 +47,3 @@ Learn git fundamentals from zero to production-ready skills through structured, 
 - **Modules**: 6
 - **Levels**: 3
 - **Format**: Self-paced with milestones
-

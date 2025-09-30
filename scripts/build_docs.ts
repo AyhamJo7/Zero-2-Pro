@@ -26,6 +26,17 @@ interface Track {
  */
 
 /**
+ * Normalize markdown content to fix formatting issues
+ */
+function normalizeMd(md: string): string {
+  return md
+    .replace(/\r/g, '')            // normalize line endings
+    .replace(/[ \t]+$/gm, '')      // trim trailing spaces
+    .replace(/\n{3,}/g, '\n\n')    // squash 3+ blanks -> single blank line
+    .replace(/\n*$/, '\n');        // ensure exactly one trailing newline
+}
+
+/**
  * Load catalog data
  */
 async function loadCatalog(): Promise<Module[]> {
@@ -210,8 +221,7 @@ async function main(): Promise<number> {
 
     // Generate track overview page
     const overviewContent = generateTrackOverview(tracks, useCards);
-    const overviewOut = overviewContent.replace(/\n{3,}/g, "\n\n");
-    await writeFile(join(tracksDir, 'index.md'), overviewOut);
+    await writeFile(join(tracksDir, 'index.md'), normalizeMd(overviewContent));
 
     // Generate individual track pages
     for (const track of tracks) {
@@ -220,8 +230,7 @@ async function main(): Promise<number> {
         ? generateCardsTrackPage(track)
         : generateListTrackPage(track);
 
-      const pageOut = trackContent.replace(/\n{3,}/g, "\n\n");
-      await writeFile(join(tracksDir, trackFileName), pageOut);
+      await writeFile(join(tracksDir, trackFileName), normalizeMd(trackContent));
       console.log(`  ✅ Generated ${trackFileName}`);
     }
 
