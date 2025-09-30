@@ -2,42 +2,75 @@
 
 Learn go from zero to production-ready skills through structured, hands-on modules.
 
-## Learning Path
+<div class="grid cards" markdown>
 
-### Orientation: From Zero: Install Go, Modules, and First Program
+-   **Orientation**
 
-**Level 0** • Getting started and setup
+    ---
 
-[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/04-go/go-00-setup.md)
+    ### From Zero: Install Go, Modules, and First Program
 
-### Foundations: Foundations: Types, Errors, Testing, Packages
+    Getting started and setup
 
-**Level 1** • Core concepts and basics
+    **Level 0**
 
-[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/04-go/go-01-foundations.md)
+    [Start Module :material-arrow-right:](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/04-go/go-00-setup.md)
 
-### Core Skills: Core Skills: HTTP Services + Goroutines & Channels
+-   **Foundations**
 
-**Level 2** • Practical application
+    ---
 
-[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/04-go/go-02-core-concurrency.md)
+    ### Foundations: Types, Errors, Testing, Packages
 
-### Project: Milestone: Production-ish Go Service
+    Core concepts and basics
 
-**Level 3** • Real-world milestone
+    **Level 1**
 
-[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/04-go/go-03-project-service.md)
+    [Start Module :material-arrow-right:](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/04-go/go-01-foundations.md)
 
-### Advanced: Advanced: Concurrency Patterns, Context, and Backpressure
+-   **Core Skills**
 
-**Level 4** • Production-ready expertise
+    ---
 
-[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/04-go/go-04-advanced.md)
+    ### Core Skills: HTTP Services + Goroutines & Channels
 
----
+    Practical application
 
-## Track Overview
+    **Level 2**
 
-- **Modules**: 5
-- **Levels**: 5
-- **Format**: Self-paced with milestones
+    [Start Module :material-arrow-right:](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/04-go/go-02-core-concurrency.md)
+
+-   **Project**
+
+    ---
+
+    ### Milestone: Production-ish Go Service
+
+    Real-world milestone
+
+    **Level 3**
+
+    [Start Module :material-arrow-right:](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/04-go/go-03-project-service.md)
+
+-   **Advanced**
+
+    ---
+
+    ### Advanced: Concurrency Patterns, Context, and Backpressure
+
+    Production-ready expertise
+
+    **Level 4**
+
+    [Start Module :material-arrow-right:](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/04-go/go-04-advanced.md)
+
+</div>
+
+## Track Details
+
+| Metric | Value |
+|--------|-------|
+| **Modules** | 5 |
+| **Levels** | 5 |
+| **Format** | Self-paced with milestones |
+| **Prerequisites** | Varies by level |
