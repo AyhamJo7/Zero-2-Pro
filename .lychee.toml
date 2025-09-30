@@ -1,0 +1,16 @@
+# Lychee link checker configuration
+# https://lychee.cli.rs/#/usage/config
+
+max_redirects = 5
+timeout = 20
+exclude_mail = true
+
+# Exclude patterns for links that are noisy or known to cause issues
+exclude = [
+  "mailto:*",
+  "https://github.com/*#*",  # GitHub anchors often 429 under CI
+  "https://img.shields.io/*",  # Shields can throttle
+  "http://localhost*",
+]
+
+cache = true
