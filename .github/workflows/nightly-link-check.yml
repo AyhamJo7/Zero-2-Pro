@@ -34,7 +34,6 @@ jobs:
             --no-progress
             --verbose
             --max-redirects 5
-            --exclude-mail
             --accept 200,206,429
             --max-concurrency 6
             --retry-wait-time 2

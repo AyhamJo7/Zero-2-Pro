@@ -6,9 +6,6 @@ timeout = 20
 retry_wait_time = 2
 user_agent = "github-actions/lychee"
 
-# Don't check email links
-exclude_mail = true
-
 # Common noisy domains or patterns that cause false positives
 exclude = [
   "mailto:*",
