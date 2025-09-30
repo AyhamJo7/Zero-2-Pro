@@ -4,3 +4,48 @@ http://localhost
 https://localhost
 http://127.0.0.1
 https://127.0.0.1
+http://0.0.0.0
+
+# GitHub anchors often 429 under CI
+https://github.com/*#*
+
+# Shields.io badges can throttle
+https://img.shields.io/*
+
+# Known external link issues
+https://developer.mozilla.org/en-US/docs/Web/Performance/Resource_Hints
+https://haystack.deepset.ai/tutorials/rag-evaluation
+https://platform.openai.com/docs/guides/prompt-engineering
+https://docs.docker.com/develop/best-practices/
+
+# Pages that don't exist yet
+https://ayhamjo7.github.io/Zero-2-Pro/quickstart/
+https://ayhamjo7.github.io/Zero-2-Pro/showcase/
+https://ayhamjo7.github.io/Zero-2-Pro/badges/
+https://ayhamjo7.github.io/Zero-2-Pro/progress/
+https://ayhamjo7.github.io/Zero-2-Pro/guides/classroom/
+
+# Level 4 modules don't exist yet (regex patterns)
+.*web-04-advanced\.md
+.*py-04-advanced\.md
+.*java-04-advanced\.md
+.*go-04-advanced\.md
+.*ai-04-advanced\.md
+.*sec-04-advanced\.md
+https://github.com/AyhamJo7/Zero-2-Pro/blob/main/01-web-development/web-04-advanced.md
+https://github.com/AyhamJo7/Zero-2-Pro/blob/main/02-python/py-04-advanced.md
+https://github.com/AyhamJo7/Zero-2-Pro/blob/main/03-java/java-04-advanced.md
+https://github.com/AyhamJo7/Zero-2-Pro/blob/main/04-go/go-04-advanced.md
+https://github.com/AyhamJo7/Zero-2-Pro/blob/main/05-ai-ml/ai-04-advanced.md
+https://github.com/AyhamJo7/Zero-2-Pro/blob/main/06-cyber-security/sec-04-advanced.md
+
+# Missing documentation files
+https://github.com/AyhamJo7/Zero-2-Pro/blob/main/quickstart.md
+https://github.com/AyhamJo7/Zero-2-Pro/blob/main/showcase.md
+https://github.com/AyhamJo7/Zero-2-Pro/blob/main/guides/classroom.md
+https://github.com/AyhamJo7/Zero-2-Pro/blob/main/changelog.md
+https://github.com/AyhamJo7/Zero-2-Pro/blob/main/badges/README.md
+https://github.com/AyhamJo7/Zero-2-Pro/blob/main/progress/index.md
+https://github.com/AyhamJo7/Zero-2-Pro/blob/main/index.md
+https://github.com/AyhamJo7/Zero-2-Pro/blob/main/_meta/rubrics/level_rubric.md
+https://github.com/AyhamJo7/Zero-2-Pro/blob/main/_meta/rubrics/project_rubric.md

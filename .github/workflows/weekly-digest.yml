@@ -1,0 +1,164 @@
+name: Weekly Cohort Digest
+
+on:
+  schedule:
+    - cron: '0 9 * * 1' # Every Monday at 9:00 UTC
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  generate-digest:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate weekly digest
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs').promises;
+            const path = require('path');
+
+            console.log('📅 Generating weekly cohort digest...');
+
+            // Get current week info
+            const now = new Date();
+            const weekStart = new Date(now);
+            weekStart.setDate(now.getDate() - 7);
+
+            const dateStr = now.toISOString().split('T')[0]; // YYYY-MM-DD
+            const title = `Weekly Cohort Digest (${dateStr})`;
+
+            // Check if this week's digest already exists
+            const { data: existingIssues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              per_page: 10
+            });
+
+            const existingDigest = existingIssues.find(issue => issue.title === title);
+
+            // Fetch progress data
+            const progressPath = path.join(process.cwd(), 'docs/_data/progress.json');
+            let progressData = { learners: [] };
+            try {
+              progressData = JSON.parse(await fs.readFile(progressPath, 'utf-8'));
+            } catch (err) {
+              console.log('No progress data found, using empty');
+            }
+
+            // Fetch new progress issues this week
+            const { data: allIssues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: 'progress',
+              state: 'all',
+              per_page: 100,
+              since: weekStart.toISOString()
+            });
+
+            const newProgressIssues = allIssues.filter(issue =>
+              new Date(issue.created_at) >= weekStart &&
+              issue.labels.some(l => l.name === 'progress')
+            );
+
+            // Fetch cohort issues
+            const { data: cohortIssues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: 'cohort',
+              state: 'open',
+              per_page: 50
+            });
+
+            // Compute stats
+            const totalLearners = progressData.learners.length;
+            const completedLevels = progressData.learners.reduce((sum, l) => {
+              return sum + Object.values(l.levels).filter(Boolean).length;
+            }, 0);
+
+            // Top 5 most active (by modules checked)
+            const topLearners = [...progressData.learners]
+              .sort((a, b) => b.totalChecked - a.totalChecked)
+              .slice(0, 5);
+
+            // Build digest content
+            let body = `# 📊 Weekly Cohort Digest\n\n`;
+            body += `**Week of**: ${dateStr}\n\n`;
+            body += `## 🎯 This Week's Highlights\n\n`;
+
+            if (newProgressIssues.length > 0) {
+              body += `### 🆕 New Progress Trackers (${newProgressIssues.length})\n\n`;
+              newProgressIssues.forEach(issue => {
+                body += `- [@${issue.user.login}](${issue.html_url}) — ${issue.title}\n`;
+              });
+              body += `\n`;
+            } else {
+              body += `### 🆕 New Progress Trackers\n\nNo new progress trackers this week. [Create yours!](https://github.com/AyhamJo7/Zero-2-Pro/issues/new?template=progress.md)\n\n`;
+            }
+
+            body += `### 📈 Overall Stats\n\n`;
+            body += `- **Active learners**: ${totalLearners}\n`;
+            body += `- **Total levels completed**: ${completedLevels}\n`;
+            body += `- **Active cohorts**: ${cohortIssues.length}\n\n`;
+
+            if (topLearners.length > 0) {
+              body += `### 🏆 Top 5 Most Active Learners\n\n`;
+              topLearners.forEach((learner, idx) => {
+                const completed = Object.values(learner.levels).filter(Boolean).length;
+                body += `${idx + 1}. [@${learner.author}](${learner.url}) — ${learner.totalChecked} modules, ${completed} levels\n`;
+              });
+              body += `\n`;
+            }
+
+            if (cohortIssues.length > 0) {
+              body += `### 👥 Active Cohorts\n\n`;
+              cohortIssues.forEach(cohort => {
+                body += `- [${cohort.title}](${cohort.html_url})\n`;
+              });
+              body += `\n`;
+            } else {
+              body += `### 👥 Active Cohorts\n\nNo active cohorts yet. [Start one!](https://github.com/AyhamJo7/Zero-2-Pro/issues/new?template=cohort.md)\n\n`;
+            }
+
+            body += `---\n\n`;
+            body += `📊 [View Progress Dashboard](https://ayhamjo7.github.io/Zero-2-Pro/progress/) • `;
+            body += `✅ [Track Your Progress](https://github.com/AyhamJo7/Zero-2-Pro/issues/new?template=progress.md) • `;
+            body += `👥 [Join a Cohort](https://github.com/AyhamJo7/Zero-2-Pro/issues/new?template=cohort.md)\n`;
+
+            // Create or update digest issue
+            if (existingDigest) {
+              console.log(`Updating existing digest: #${existingDigest.number}`);
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existingDigest.number,
+                body
+              });
+            } else {
+              console.log('Creating new digest issue');
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+                labels: ['digest', 'docs']
+              });
+            }
+
+            console.log('✅ Weekly digest generated successfully');

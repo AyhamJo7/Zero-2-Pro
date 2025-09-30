@@ -34,11 +34,20 @@ jobs:
             --no-progress
             --verbose
             --max-redirects 5
-            --exclude-mail
             --accept 200,206,429
             --max-concurrency 6
             --retry-wait-time 2
-            --retry-count 2
-            .
+            --exclude-path 'site/'
+            --exclude-path 'docs/badges/'
+            ./**/*.md
+            ./**/*.html
+          fail: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Save lychee cache
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: .lycheecache
+          key: lychee-${{ github.sha }}
