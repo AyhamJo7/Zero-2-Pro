@@ -25,13 +25,13 @@ https://ayhamjo7.github.io/Zero-2-Pro/badges/
 https://ayhamjo7.github.io/Zero-2-Pro/progress/
 https://ayhamjo7.github.io/Zero-2-Pro/guides/classroom/
 
-# Level 4 modules don't exist yet
-**/web-04-advanced.md
-**/py-04-advanced.md
-**/java-04-advanced.md
-**/go-04-advanced.md
-**/ai-04-advanced.md
-**/sec-04-advanced.md
+# Level 4 modules don't exist yet (regex patterns)
+.*web-04-advanced\.md
+.*py-04-advanced\.md
+.*java-04-advanced\.md
+.*go-04-advanced\.md
+.*ai-04-advanced\.md
+.*sec-04-advanced\.md
 https://github.com/AyhamJo7/Zero-2-Pro/blob/main/01-web-development/web-04-advanced.md
 https://github.com/AyhamJo7/Zero-2-Pro/blob/main/02-python/py-04-advanced.md
 https://github.com/AyhamJo7/Zero-2-Pro/blob/main/03-java/java-04-advanced.md
