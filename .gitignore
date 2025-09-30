@@ -73,6 +73,9 @@ public/build/
 *.orig
 *.rej
 
+# --- Link checker cache ---
+.lycheecache
+
 # --- Keep placeholders & docs tracked ---
 !.gitkeep
 !**/TOC.md

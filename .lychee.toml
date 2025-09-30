@@ -1,0 +1,26 @@
+# Lychee link checker configuration
+# https://github.com/lycheeverse/lychee
+
+max_redirects = 5
+timeout = 20
+retry_wait_time = 2
+user_agent = "github-actions/lychee"
+
+# Don't check email links
+exclude_mail = true
+
+# Common noisy domains or patterns that cause false positives
+exclude = [
+  "mailto:*",
+  # GitHub anchors often 429 under CI
+  "https://github.com/*#*",
+  # Shields.io badges can throttle
+  "https://img.shields.io/*",
+  # Local links during development
+  "http://localhost*",
+  "http://127.0.0.1*",
+  "http://0.0.0.0*",
+]
+
+# Cache responses to speed up runs and avoid rate limits
+cache = true
