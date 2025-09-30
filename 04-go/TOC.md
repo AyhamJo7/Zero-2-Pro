@@ -18,4 +18,4 @@
 
 ## Level 4 — Advanced
 
-- [Advanced: Concurrency Patterns, Context, and Backpressure](go-04-advanced-concurrency.md) `(go-04-advanced-concurrency)`
+- [Advanced: Concurrency Patterns, Context, and Backpressure](go-04-advanced.md) `(go-04-advanced)`

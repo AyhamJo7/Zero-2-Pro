@@ -18,4 +18,4 @@
 
 ## Level 4 — Advanced
 
-- [Advanced: Web Performance & Observability (CWV, bundling, budgets)](web-04-advanced-performance.md) `(web-04-advanced-performance)`
+- [Advanced: Web Performance & Observability](web-04-advanced.md) `(web-04-advanced)`

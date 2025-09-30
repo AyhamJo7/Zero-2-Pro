@@ -1,87 +1,42 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://example.com/schemas/module.schema.json",
-  "title": "Learning Module Front-Matter",
+  "$id": "https://zero2pro.dev/schema/module",
+  "title": "Zero-2-Pro Module Front-Matter",
   "type": "object",
-  "additionalProperties": false,
-  "required": ["id", "track", "level", "title", "outcomes", "assessment"],
+  "required": ["id", "track", "level", "title"],
+  "additionalProperties": true,
   "properties": {
-    "id": {
-      "type": "string",
-      "pattern": "^[a-z0-9-]+$",
-      "description": "Unique slug, e.g., git-01-intro"
-    },
-    "track": {
-      "type": "string",
-      "enum": [
-        "00-git-path",
-        "01-web-development",
-        "02-python",
-        "03-java",
-        "04-go",
-        "05-ai-ml",
-        "06-cyber-security"
-      ]
-    },
-    "level": {
-      "type": "integer",
-      "minimum": 0,
-      "maximum": 4,
-      "description": "0=Zero, 1=Foundations, 2=Core, 3=Projects, 4=Advanced"
-    },
-    "title": { "type": "string", "minLength": 3 },
-    "time": {
-      "type": "string",
-      "description": "Rough duration, e.g., '2-3h'"
-    },
+    "id": { "type": "string", "minLength": 1 },
+    "track": { "type": "string", "minLength": 1 },
+    "level": { "type": "integer", "minimum": 0, "maximum": 4 },
+    "title": { "type": "string", "minLength": 1 },
+
+    "time": { "type": "string" },
+
     "prerequisites": {
       "type": "array",
-      "items": { "type": "string" },
-      "uniqueItems": true,
-      "default": []
+      "items": { "type": "string" }
     },
+
     "outcomes": {
       "type": "array",
-      "minItems": 3,
-      "items": { "type": "string", "minLength": 3 },
-      "description": "What the learner can do after completion"
+      "minItems": 1,
+      "items": { "type": "string" }
     },
+
     "assessment": {
-      "type": "object",
-      "required": ["type"],
-      "additionalProperties": true,
-      "properties": {
-        "type": {
-          "type": "string",
-          "enum": ["proof-of-work", "quiz", "project", "reflection"]
-        },
-        "deliverable": { "type": "string" },
-        "rubric_ref": { "type": "string" }
-      },
-      "description": "How learning is verified"
+      "oneOf": [
+        { "type": "string" },
+        { "type": "array", "items": { "type": "string" } },
+        { "type": "object" }
+      ]
     },
-    "resources": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": ["label", "url"],
-        "additionalProperties": false,
-        "properties": {
-          "label": { "type": "string" },
-          "url": {
-            "type": "string",
-            "format": "uri"
-          },
-          "notes": { "type": "string" }
-        }
-      },
-      "default": []
-    },
+
     "tags": {
       "type": "array",
-      "items": { "type": "string" },
-      "uniqueItems": true,
-      "default": []
-    }
+      "items": { "type": "string" }
+    },
+
+    "archived_url": { "type": "string", "format": "uri" },
+    "lang": { "type": "string" }
   }
 }

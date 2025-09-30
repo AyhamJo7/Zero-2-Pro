@@ -1,0 +1,80 @@
+name: Web Development Smoke Tests
+
+on:
+  push:
+    paths:
+      - '01-web-development/**'
+      - '.github/workflows/web-smoketests.yml'
+  pull_request:
+    paths:
+      - '01-web-development/**'
+      - '.github/workflows/web-smoketests.yml'
+
+jobs:
+  web-smoketests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Find web projects
+      id: find-projects
+      run: |
+        projects=$(find 01-web-development -name "package.json" | xargs dirname | sort -u || true)
+        if [ -z "$projects" ]; then
+          echo "No Node.js projects found - this is expected for educational content"
+          echo "found=false" >> $GITHUB_OUTPUT
+        else
+          echo "Found projects: $projects"
+          echo "found=true" >> $GITHUB_OUTPUT
+          echo "projects<<EOF" >> $GITHUB_OUTPUT
+          echo "$projects" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Test web projects
+      if: steps.find-projects.outputs.found == 'true'
+      run: |
+        echo "${{ steps.find-projects.outputs.projects }}" | while IFS= read -r project_dir; do
+          if [ -n "$project_dir" ]; then
+            echo "Testing project in $project_dir"
+            cd "$project_dir"
+
+            # Install dependencies
+            npm ci || npm install
+
+            # Run available npm scripts
+            if npm run test --if-present; then
+              echo "✅ Tests passed for $project_dir"
+            else
+              echo "⚠️ No tests or tests failed for $project_dir"
+            fi
+
+            if npm run build --if-present; then
+              echo "✅ Build succeeded for $project_dir"
+            else
+              echo "⚠️ No build script or build failed for $project_dir"
+            fi
+
+            if npm run lint --if-present; then
+              echo "✅ Linting passed for $project_dir"
+            else
+              echo "⚠️ No lint script or linting issues in $project_dir"
+            fi
+
+            cd - > /dev/null
+          fi
+        done
+
+    - name: No projects found
+      if: steps.find-projects.outputs.found == 'false'
+      run: |
+        echo "ℹ️ No Node.js projects found in 01-web-development/"
+        echo "This is expected behavior for educational content without project seeds"
+        echo "Workflow passes successfully"

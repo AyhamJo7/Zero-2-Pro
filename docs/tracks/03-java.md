@@ -20,4 +20,4 @@
 
 ## Level 4 — Advanced
 
-- [Advanced: Resilient Services (timeouts, retries, circuit breakers) & Observability](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/03-java/java-04-advanced-resilience.md) `(java-04-advanced-resilience)`
+- [Advanced: Resilient Services & Observability](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/03-java/java-04-advanced.md) `(java-04-advanced)`

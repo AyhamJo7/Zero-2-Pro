@@ -1,106 +1,236 @@
-/**
- * Generate docs/tracks/*.md pages from docs/_meta/catalog.json.
- * - Groups by track and level.
- * - Writes tracks/index.md (overview) + per-track pages.
- * Run:
- *   npx tsx scripts/build_docs.ts
- */
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
-import { join } from "node:path";
+#!/usr/bin/env node
 
-type CatalogEntry = {
+import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { join } from 'node:path';
+
+interface Module {
   id: string;
-  track: string;   // "01-web-development"
-  level: number;   // 0..4
-  path: string;    // "01-web-development/web-00-orientation.md"
-  title?: string;
-};
-
-const repoRoot = process.cwd();
-const catalogPath = join(repoRoot, "docs", "_meta", "catalog.json");
-
-if (!existsSync(catalogPath)) {
-  console.error("No docs/_meta/catalog.json found.");
-  process.exit(0);
-}
-const catalog = JSON.parse(readFileSync(catalogPath, "utf8")) as CatalogEntry[];
-
-const levelNames: Record<number, string> = {
-  0: "Zero",
-  1: "Foundations",
-  2: "Core",
-  3: "Projects",
-  4: "Advanced",
-};
-
-const byTrack = new Map<string, CatalogEntry[]>();
-for (const e of catalog) {
-  if (!byTrack.has(e.track)) byTrack.set(e.track, []);
-  byTrack.get(e.track)!.push(e);
+  track: string;
+  level: number;
+  path: string;
+  title: string;
 }
 
-// Ensure docs/tracks
-const docsDir = join(repoRoot, "docs");
-const tracksDir = join(docsDir, "tracks");
-mkdirSync(tracksDir, { recursive: true });
-
-// Tracks overview page
-const trackList = [...byTrack.keys()].sort();
-const human = (t: string) => {
-  // "01-web-development" -> "01 — Web Development"
-  const [num, ...rest] = t.split("-");
-  const name = rest.map(w => w[0].toUpperCase() + w.slice(1)).join(" ");
-  return `${num} — ${name}`;
-};
-
-let overview: string[] = [
-  "# Tracks Overview",
-  "",
-  "Browse each track. Pages are generated from the catalog.",
-  ""
-];
-
-for (const track of trackList) {
-  const ents = byTrack.get(track)!;
-  const counts = ents.reduce<Record<number, number>>((acc, e) => {
-    acc[e.level] = (acc[e.level] || 0) + 1; return acc;
-  }, {});
-  const parts = track.split("-");
-  const pageSlug = parts.join("-");
-  overview.push(`- [${human(track)}](./${pageSlug}.md) — ` +
-    `L0:${counts[0]||0} L1:${counts[1]||0} L2:${counts[2]||0} L3:${counts[3]||0} L4:${counts[4]||0}`);
+interface Track {
+  id: string;
+  name: string;
+  modules: Module[];
 }
-overview.push("");
-writeFileSync(join(tracksDir, "index.md"), overview.join("\n"), "utf8");
 
-// Per-track pages
-for (const track of trackList) {
-  const entries = byTrack.get(track)!.slice()
-    .sort((a, b) => a.level - b.level || (a.title || a.id).localeCompare(b.title || b.id));
+/**
+ * Enhanced build_docs script with --cards mode support
+ *
+ * Usage:
+ *   tsx scripts/build_docs.ts           # Default list layout
+ *   tsx scripts/build_docs.ts --cards   # Material cards layout
+ */
 
-  const page: string[] = [
-    `# ${human(track)}`,
-    "",
-    `> Modules for **${human(track)}** grouped by level. Links go to the repo file.`,
-    ""
-  ];
+/**
+ * Load catalog data
+ */
+async function loadCatalog(): Promise<Module[]> {
+  const catalogPath = join('docs', '_meta', 'catalog.json');
+  const catalogContent = await readFile(catalogPath, 'utf-8');
+  return JSON.parse(catalogContent);
+}
 
-  for (let lvl = 0; lvl <= 4; lvl++) {
-    const items = entries.filter(e => e.level === lvl);
-    if (!items.length) continue;
-    page.push(`## Level ${lvl} — ${levelNames[lvl]}`, "");
-    for (const e of items) {
-      const label = e.title || e.id;
-      // Link directly to file in repo (keeps single source of truth)
-      const gh = `https://github.com/AyhamJo7/Zero-2-Pro/blob/main/${e.path}`;
-      page.push(`- [${label}](${gh}) \`(${e.id})\``);
+/**
+ * Group modules by track
+ */
+function groupModulesByTrack(modules: Module[]): Track[] {
+  const trackMap = new Map<string, Track>();
+
+  for (const module of modules) {
+    if (!trackMap.has(module.track)) {
+      trackMap.set(module.track, {
+        id: module.track,
+        name: getTrackDisplayName(module.track),
+        modules: []
+      });
     }
-    page.push("");
+    trackMap.get(module.track)!.modules.push(module);
   }
 
-  const out = join(tracksDir, `${track}.md`);
-  writeFileSync(out, page.join("\n"), "utf8");
-  console.log(`✅ Wrote ${out}`);
+  // Sort modules within each track by level
+  for (const track of trackMap.values()) {
+    track.modules.sort((a, b) => a.level - b.level);
+  }
+
+  return Array.from(trackMap.values()).sort((a, b) => a.id.localeCompare(b.id));
 }
 
-console.log("🎯 Docs pages generated.");
+/**
+ * Get human-readable track name
+ */
+function getTrackDisplayName(trackId: string): string {
+  const names: Record<string, string> = {
+    '00-git-path': 'Git Fundamentals',
+    '01-web-development': 'Web Development',
+    '02-python': 'Python',
+    '03-java': 'Java',
+    '04-go': 'Go',
+    '05-ai-ml': 'AI/ML',
+    '06-cyber-security': 'Cyber Security'
+  };
+  return names[trackId] || trackId;
+}
+
+/**
+ * Get level badge and description
+ */
+function getLevelInfo(level: number): { badge: string; description: string } {
+  const levels = [
+    { badge: 'Orientation', description: 'Getting started and setup' },
+    { badge: 'Foundations', description: 'Core concepts and basics' },
+    { badge: 'Core Skills', description: 'Practical application' },
+    { badge: 'Project', description: 'Real-world milestone' },
+    { badge: 'Advanced', description: 'Production-ready expertise' }
+  ];
+  return levels[level] || { badge: `Level ${level}`, description: 'Advanced topics' };
+}
+
+/**
+ * Generate list-style track page (default)
+ */
+function generateListTrackPage(track: Track): string {
+  let content = `# ${track.name}\n\n`;
+
+  content += `Learn ${track.name.toLowerCase()} from zero to production-ready skills through structured, hands-on modules.\n\n`;
+
+  content += `## Learning Path\n\n`;
+
+  for (const module of track.modules) {
+    const levelInfo = getLevelInfo(module.level);
+    content += `### ${levelInfo.badge}: ${module.title}\n\n`;
+    content += `**Level ${module.level}** • ${levelInfo.description}\n\n`;
+    content += `[Start Module →](../${module.path})\n\n`;
+  }
+
+  content += `---\n\n`;
+  content += `## Track Overview\n\n`;
+  content += `- **Modules**: ${track.modules.length}\n`;
+  content += `- **Levels**: ${Math.max(...track.modules.map(m => m.level)) + 1}\n`;
+  content += `- **Format**: Self-paced with milestones\n\n`;
+
+  return content;
+}
+
+/**
+ * Generate cards-style track page (Material Design)
+ */
+function generateCardsTrackPage(track: Track): string {
+  let content = `# ${track.name}\n\n`;
+
+  content += `Learn ${track.name.toLowerCase()} from zero to production-ready skills through structured, hands-on modules.\n\n`;
+
+  content += `<div class="grid cards" markdown>\n\n`;
+
+  for (const module of track.modules) {
+    const levelInfo = getLevelInfo(module.level);
+
+    content += `-   **${levelInfo.badge}**\n\n`;
+    content += `    ---\n\n`;
+    content += `    ### ${module.title}\n\n`;
+    content += `    ${levelInfo.description}\n\n`;
+    content += `    **Level ${module.level}**\n\n`;
+    content += `    [Start Module :material-arrow-right:](../${module.path})\n\n`;
+  }
+
+  content += `</div>\n\n`;
+
+  content += `## Track Details\n\n`;
+  content += `| Metric | Value |\n`;
+  content += `|--------|-------|\n`;
+  content += `| **Modules** | ${track.modules.length} |\n`;
+  content += `| **Levels** | ${Math.max(...track.modules.map(m => m.level)) + 1} |\n`;
+  content += `| **Format** | Self-paced with milestones |\n`;
+  content += `| **Prerequisites** | Varies by level |\n\n`;
+
+  return content;
+}
+
+/**
+ * Generate track overview page
+ */
+function generateTrackOverview(tracks: Track[], useCards: boolean): string {
+  let content = `# Learning Tracks\n\n`;
+
+  content += `Choose your learning path based on your goals and interests. Each track takes you from zero to production-ready skills.\n\n`;
+
+  if (useCards) {
+    content += `<div class="grid cards" markdown>\n\n`;
+
+    for (const track of tracks) {
+      content += `-   **${track.name}**\n\n`;
+      content += `    ---\n\n`;
+      content += `    ${track.modules.length} modules • ${Math.max(...track.modules.map(m => m.level)) + 1} levels\n\n`;
+      content += `    Build production-ready ${track.name.toLowerCase()} skills through hands-on projects\n\n`;
+      content += `    [View Track :material-arrow-right:](${track.id.replace(/^\d+-/, '')}.md)\n\n`;
+    }
+
+    content += `</div>\n\n`;
+  } else {
+    content += `## Available Tracks\n\n`;
+
+    for (const track of tracks) {
+      content += `### [${track.name}](${track.id.replace(/^\d+-/, '')}.md)\n\n`;
+      content += `**${track.modules.length} modules** across **${Math.max(...track.modules.map(m => m.level)) + 1} levels**\n\n`;
+      content += `Build production-ready ${track.name.toLowerCase()} skills through hands-on learning.\n\n`;
+    }
+  }
+
+  content += `## How Tracks Work\n\n`;
+  content += `Each track follows a proven learning progression:\n\n`;
+  content += `- **Level 0**: Orientation and setup\n`;
+  content += `- **Level 1**: Foundation concepts\n`;
+  content += `- **Level 2**: Core practical skills\n`;
+  content += `- **Level 3**: Real-world project milestone\n`;
+  content += `- **Level 4**: Advanced production techniques\n\n`;
+
+  return content;
+}
+
+/**
+ * Main function
+ */
+async function main(): Promise<number> {
+  try {
+    const useCards = process.argv.includes('--cards');
+    console.log(`🏗️ Building track pages${useCards ? ' with cards layout' : ' with list layout'}...`);
+
+    // Load catalog
+    const modules = await loadCatalog();
+    const tracks = groupModulesByTrack(modules);
+
+    // Ensure docs/tracks directory exists
+    const tracksDir = join('docs', 'tracks');
+    await mkdir(tracksDir, { recursive: true });
+
+    // Generate track overview page
+    const overviewContent = generateTrackOverview(tracks, useCards);
+    await writeFile(join(tracksDir, 'index.md'), overviewContent);
+
+    // Generate individual track pages
+    for (const track of tracks) {
+      const trackFileName = `${track.id.replace(/^\d+-/, '')}.md`;
+      const trackContent = useCards
+        ? generateCardsTrackPage(track)
+        : generateListTrackPage(track);
+
+      await writeFile(join(tracksDir, trackFileName), trackContent);
+      console.log(`  ✅ Generated ${trackFileName}`);
+    }
+
+    console.log(`🎉 Generated ${tracks.length + 1} track pages`);
+    return 0;
+
+  } catch (error) {
+    console.error('❌ Error building docs:', error);
+    return 1;
+  }
+}
+
+// Run if called directly
+if (import.meta.url === `file://${process.argv[1]}`) {
+  main().then(code => process.exit(code));
+}

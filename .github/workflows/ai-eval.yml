@@ -1,0 +1,54 @@
+name: AI/ML Evaluation
+
+on:
+  push:
+    paths:
+      - '05-ai-ml/**'
+      - '.github/workflows/ai-eval.yml'
+  pull_request:
+    paths:
+      - '05-ai-ml/**'
+      - '.github/workflows/ai-eval.yml'
+
+jobs:
+  ai-eval:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install evaluation dependencies
+      run: |
+        pip install --upgrade pip
+        pip install numpy pandas scikit-learn matplotlib
+
+    - name: Find AI/ML projects
+      id: find-projects
+      run: |
+        projects=$(find 05-ai-ml -name "*.py" -o -name "*.ipynb" | head -1)
+        if [ -z "$projects" ]; then
+          echo "No AI/ML files found - this is expected for educational content"
+          echo "found=false" >> $GITHUB_OUTPUT
+        else
+          echo "Found AI/ML files"
+          echo "found=true" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Run AI evaluation stub
+      if: steps.find-projects.outputs.found == 'true'
+      run: |
+        python scripts/ai_eval_stub.py
+
+    - name: No projects found
+      if: steps.find-projects.outputs.found == 'false'
+      run: |
+        echo "ℹ️ No AI/ML files found in 05-ai-ml/"
+        echo "This is expected behavior for educational content"
+        echo "Running stub evaluation to verify workflow"
+        python scripts/ai_eval_stub.py

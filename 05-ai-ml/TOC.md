@@ -18,4 +18,4 @@
 
 ## Level 4 — Advanced
 
-- [Advanced: RAG Evaluation, Guardrails, and Observability](ai-04-rag-eval-guardrails.md) `(ai-04-rag-eval-guardrails)`
+- [Advanced: RAG Evaluation, Guardrails, and Observability](ai-04-advanced.md) `(ai-04-advanced)`

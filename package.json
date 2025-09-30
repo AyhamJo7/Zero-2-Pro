@@ -8,15 +8,21 @@
     "check": "npm run validate && npm run toc",
     "docs:buildpages": "tsx scripts/build_docs.ts",
     "site:build": "npm run docs:buildpages && mkdocs build --strict",
-    "site:serve": "npm run docs:buildpages && mkdocs serve -a 0.0.0.0:8000"
+    "site:serve": "npm run docs:buildpages && mkdocs serve -a 0.0.0.0:8000",
+    "lint:frontmatter": "tsx scripts/lint_frontmatter.ts",
+    "lint:all": "npm run lint:frontmatter && markdownlint-cli2 \"**/*.md\""
   },
   "devDependencies": {
+    "ajv": "^8.12.0",
+    "ajv-formats": "^2.1.1",
+    "glob": "^10.3.10",
     "husky": "^9.1.6",
     "lint-staged": "^15.2.10",
     "markdownlint-cli2": "^0.14.0",
     "ts-node": "^10.9.2",
     "tsx": "^4.20.6",
-    "typescript": "^5.6.3"
+    "typescript": "^5.6.3",
+    "yaml": "^2.3.4"
   },
   "lint-staged": {
     "\"**/*.md\"": "markdownlint-cli2",

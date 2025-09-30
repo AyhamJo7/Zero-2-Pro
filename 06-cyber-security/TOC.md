@@ -18,4 +18,4 @@
 
 ## Level 4 — Advanced
 
-- [Advanced: Hardening Playbook & Threat Modeling (Lab)](sec-04-hardening-playbook.md) `(sec-04-hardening-playbook)`
+- [Advanced: Hardening Playbook & Threat Modeling](sec-04-advanced.md) `(sec-04-advanced)`

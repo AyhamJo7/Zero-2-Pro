@@ -20,4 +20,4 @@
 
 ## Level 4 — Advanced
 
-- [Advanced: Hardening Playbook & Threat Modeling (Lab)](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/06-cyber-security/sec-04-hardening-playbook.md) `(sec-04-hardening-playbook)`
+- [Advanced: Hardening Playbook & Threat Modeling](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/06-cyber-security/sec-04-advanced.md) `(sec-04-advanced)`

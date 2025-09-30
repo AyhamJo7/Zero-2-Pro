@@ -20,4 +20,4 @@
 
 ## Level 4 — Advanced
 
-- [Advanced: Web Performance & Observability (CWV, bundling, budgets)](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/01-web-development/web-04-advanced-performance.md) `(web-04-advanced-performance)`
+- [Advanced: Web Performance & Observability](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/01-web-development/web-04-advanced.md) `(web-04-advanced)`

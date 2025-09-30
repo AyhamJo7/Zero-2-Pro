@@ -18,4 +18,4 @@
 
 ## Level 4 — Advanced
 
-- [Advanced: Async IO, Concurrency, and Profiling](py-04-advanced-async-performance.md) `(py-04-advanced-async-performance)`
+- [Advanced: Async IO, Concurrency, and Profiling](py-04-advanced.md) `(py-04-advanced)`

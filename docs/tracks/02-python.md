@@ -20,4 +20,4 @@
 
 ## Level 4 — Advanced
 
-- [Advanced: Async IO, Concurrency, and Profiling](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/02-python/py-04-advanced-async-performance.md) `(py-04-advanced-async-performance)`
+- [Advanced: Async IO, Concurrency, and Profiling](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/02-python/py-04-advanced.md) `(py-04-advanced)`

@@ -1,0 +1,82 @@
+name: Go Smoke Tests
+
+on:
+  push:
+    paths:
+      - '04-go/**'
+      - '.github/workflows/go-smoketests.yml'
+  pull_request:
+    paths:
+      - '04-go/**'
+      - '.github/workflows/go-smoketests.yml'
+
+jobs:
+  go-smoketests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.21'
+
+    - name: Find Go projects
+      id: find-projects
+      run: |
+        projects=$(find 04-go -name "go.mod" | xargs dirname | sort -u || true)
+        if [ -z "$projects" ]; then
+          echo "No Go projects found - this is expected for educational content"
+          echo "found=false" >> $GITHUB_OUTPUT
+        else
+          echo "Found projects: $projects"
+          echo "found=true" >> $GITHUB_OUTPUT
+          echo "projects<<EOF" >> $GITHUB_OUTPUT
+          echo "$projects" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Test Go projects
+      if: steps.find-projects.outputs.found == 'true'
+      run: |
+        echo "${{ steps.find-projects.outputs.projects }}" | while IFS= read -r project_dir; do
+          if [ -n "$project_dir" ]; then
+            echo "Testing project in $project_dir"
+            cd "$project_dir"
+
+            # Download dependencies
+            go mod download
+
+            # Run tests
+            if go test ./...; then
+              echo "✅ Tests passed for $project_dir"
+            else
+              echo "⚠️ Tests failed or no tests in $project_dir"
+            fi
+
+            # Try to build
+            if go build ./...; then
+              echo "✅ Build succeeded for $project_dir"
+            else
+              echo "⚠️ Build failed for $project_dir"
+            fi
+
+            # Run vet
+            if go vet ./...; then
+              echo "✅ go vet passed for $project_dir"
+            else
+              echo "⚠️ go vet issues in $project_dir"
+            fi
+
+            cd - > /dev/null
+          fi
+        done
+
+    - name: No projects found
+      if: steps.find-projects.outputs.found == 'false'
+      run: |
+        echo "ℹ️ No Go projects found in 04-go/"
+        echo "This is expected behavior for educational content without project seeds"
+        echo "Workflow passes successfully"

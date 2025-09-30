@@ -1,0 +1,80 @@
+name: Python Tests
+
+on:
+  push:
+    paths:
+      - '02-python/**'
+      - '.github/workflows/python-tests.yml'
+  pull_request:
+    paths:
+      - '02-python/**'
+      - '.github/workflows/python-tests.yml'
+
+jobs:
+  python-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.9', '3.10', '3.11', '3.12']
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Find Python projects
+      id: find-projects
+      run: |
+        projects=$(find 02-python -name "pyproject.toml" -o -name "requirements.txt" -o -name "setup.py" | xargs dirname | sort -u || true)
+        if [ -z "$projects" ]; then
+          echo "No Python projects found - this is expected for educational content"
+          echo "found=false" >> $GITHUB_OUTPUT
+        else
+          echo "Found projects: $projects"
+          echo "found=true" >> $GITHUB_OUTPUT
+          echo "projects<<EOF" >> $GITHUB_OUTPUT
+          echo "$projects" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Install dependencies and run tests
+      if: steps.find-projects.outputs.found == 'true'
+      run: |
+        echo "${{ steps.find-projects.outputs.projects }}" | while IFS= read -r project_dir; do
+          if [ -n "$project_dir" ]; then
+            echo "Testing project in $project_dir"
+            cd "$project_dir"
+
+            # Install dependencies
+            if [ -f "pyproject.toml" ]; then
+              pip install -e .
+            elif [ -f "requirements.txt" ]; then
+              pip install -r requirements.txt
+            elif [ -f "setup.py" ]; then
+              pip install -e .
+            fi
+
+            # Install test dependencies
+            pip install pytest pytest-cov
+
+            # Run tests if test directory exists
+            if [ -d "tests" ] || [ -f "test_*.py" ] || find . -name "*_test.py" | grep -q .; then
+              pytest -v --tb=short
+            else
+              echo "No tests found in $project_dir - skipping"
+            fi
+
+            cd - > /dev/null
+          fi
+        done
+
+    - name: No projects found
+      if: steps.find-projects.outputs.found == 'false'
+      run: |
+        echo "ℹ️ No Python projects with dependencies found in 02-python/"
+        echo "This is expected behavior for educational content without project seeds"
+        echo "Workflow passes successfully"

@@ -1,0 +1,54 @@
+site_name: Zero-to-Pro Roadmap
+site_url: https://ayhamjo7.github.io/Zero-2-Pro/
+repo_url: https://github.com/AyhamJo7/Zero-2-Pro
+repo_name: AyhamJo7/Zero-2-Pro
+edit_uri: blob/main/
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - content.code.copy
+    - content.action.edit
+    - search.suggest
+    - search.highlight
+plugins:
+  - search
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/AyhamJo7/Zero-2-Pro
+nav:
+  - Home: index.md
+  - Quickstart: quickstart.md
+  - Tracks:
+      - Overview: tracks/index.md
+  - Guides:
+      - GitHub Classroom: guides/classroom.md
+  - Community:
+      - Progress Dashboard: progress/index.md
+      - Showcase: showcase.md
+      - Badges: badges/README.md
+  - Contributing:
+      - Contributor Guide (GitHub): https://github.com/AyhamJo7/Zero-2-Pro/blob/main/CONTRIBUTING.md
+      - Code of Conduct (GitHub): https://github.com/AyhamJo7/Zero-2-Pro/blob/main/CODE_OF_CONDUCT.md
+      - Rubrics:
+          - Level Rubric: _meta/rubrics/level_rubric.md
+          - Project Rubric: _meta/rubrics/project_rubric.md
+  - Policies:
+      - Reference Solutions: policies/solutions.md
+  - Changelog: changelog.md
+markdown_extensions:
+  - toc:
+      permalink: true
+  - admonition
+  - def_list
+  - footnotes
+  - tables
+  - attr_list
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg

@@ -18,4 +18,4 @@
 
 ## Level 4 — Advanced
 
-- [Advanced: Resilient Services (timeouts, retries, circuit breakers) & Observability](java-04-advanced-resilience.md) `(java-04-advanced-resilience)`
+- [Advanced: Resilient Services & Observability](java-04-advanced.md) `(java-04-advanced)`
