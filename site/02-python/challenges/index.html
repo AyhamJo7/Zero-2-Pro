@@ -1271,6 +1271,48 @@
 <li><a href="https://celery.readthedocs.io/">Celery for Distributed Tasks</a></li>
 <li><a href="https://docs.docker.com/develop/best-practices/">Docker Best Practices</a></li>
 </ul>
+<hr />
+<h1 id="level-4-challenge-variants-advanced-async-performance">Level-4 Challenge Variants — Advanced Async &amp; Performance<a class="headerlink" href="#level-4-challenge-variants-advanced-async-performance" title="Permanent link">&para;</a></h1>
+<p>These challenge variants extend the <strong>py-04-advanced-async-performance</strong> module with additional stretch goals that deepen your concurrency and profiling skills.</p>
+<hr />
+<h2 id="variant-a-multi-strategy-concurrency-comparison">Variant A — Multi-Strategy Concurrency Comparison<a class="headerlink" href="#variant-a-multi-strategy-concurrency-comparison" title="Permanent link">&para;</a></h2>
+<p><strong>Goal</strong>: Compare throughput &amp; latency across sync, asyncio, threading, and multiprocessing for a realistic workload.</p>
+<p><strong>Deliverables</strong>:
+- Benchmark script that runs all four strategies
+- Results table (throughput, p50/p95 latency, CPU/memory)
+- Commentary on when each strategy shines</p>
+<p><strong>Acceptance Criteria</strong>:
+- At least 4 strategies benchmarked
+- Statistical significance (multiple runs)
+- Clear recommendation for the workload tested</p>
+<hr />
+<h2 id="variant-b-production-grade-async-pipeline">Variant B — Production-Grade Async Pipeline<a class="headerlink" href="#variant-b-production-grade-async-pipeline" title="Permanent link">&para;</a></h2>
+<p><strong>Goal</strong>: Implement structured concurrency with backpressure, retries, and observability.</p>
+<p><strong>Deliverables</strong>:
+- Pipeline with bounded concurrency (semaphore or task groups)
+- Retry logic with exponential backoff
+- Logging/metrics (e.g., success rate, latency histogram)
+- CI integration (tests pass, perf guard in place)</p>
+<p><strong>Acceptance Criteria</strong>:
+- Pipeline handles failures gracefully (retry + circuit breaker optional)
+- Observability demonstrates backpressure in action
+- Tests cover cancellation and timeout paths</p>
+<hr />
+<h2 id="variant-c-your-own-stretch">Variant C — (Your own stretch)<a class="headerlink" href="#variant-c-your-own-stretch" title="Permanent link">&para;</a></h2>
+<p><strong>Goal</strong>: Propose and execute a measurable stretch aligned with the module outcomes.</p>
+<p><strong>Examples</strong>:
+- <code>uvloop</code> integration + benchmark vs standard asyncio
+- Profiling with py-spy or scalene; flamegraph analysis
+- Async database connection pooling with load testing
+- Custom async context managers for resource cleanup</p>
+<p><strong>Deliverables</strong>:
+- Short proposal (1–2 paragraphs)
+- Implementation evidence (code, config, profiling output)
+- Metrics or results (e.g., throughput improvement, memory reduction)</p>
+<p><strong>Acceptance Criteria</strong>:
+- Measurable outcome
+- Documented steps and results
+- Ties back to L3/L4 learning outcomes</p>
 
 
 

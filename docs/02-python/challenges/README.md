@@ -70,3 +70,61 @@ Package for production distribution:
 - [Python Packaging Guide](https://packaging.python.org/)
 - [Celery for Distributed Tasks](https://celery.readthedocs.io/)
 - [Docker Best Practices](https://docs.docker.com/develop/best-practices/)
+
+---
+
+## Level-4 Challenge Variants — Advanced Async & Performance
+
+These challenge variants extend the **py-04-advanced-async-performance** module with additional stretch goals that deepen your concurrency and profiling skills.
+
+---
+
+## Variant A — Multi-Strategy Concurrency Comparison
+**Goal**: Compare throughput & latency across sync, asyncio, threading, and multiprocessing for a realistic workload.
+
+**Deliverables**:
+- Benchmark script that runs all four strategies
+- Results table (throughput, p50/p95 latency, CPU/memory)
+- Commentary on when each strategy shines
+
+**Acceptance Criteria**:
+- At least 4 strategies benchmarked
+- Statistical significance (multiple runs)
+- Clear recommendation for the workload tested
+
+---
+
+## Variant B — Production-Grade Async Pipeline
+**Goal**: Implement structured concurrency with backpressure, retries, and observability.
+
+**Deliverables**:
+- Pipeline with bounded concurrency (semaphore or task groups)
+- Retry logic with exponential backoff
+- Logging/metrics (e.g., success rate, latency histogram)
+- CI integration (tests pass, perf guard in place)
+
+**Acceptance Criteria**:
+- Pipeline handles failures gracefully (retry + circuit breaker optional)
+- Observability demonstrates backpressure in action
+- Tests cover cancellation and timeout paths
+
+---
+
+## Variant C — (Your own stretch)
+**Goal**: Propose and execute a measurable stretch aligned with the module outcomes.
+
+**Examples**:
+- `uvloop` integration + benchmark vs standard asyncio
+- Profiling with py-spy or scalene; flamegraph analysis
+- Async database connection pooling with load testing
+- Custom async context managers for resource cleanup
+
+**Deliverables**:
+- Short proposal (1–2 paragraphs)
+- Implementation evidence (code, config, profiling output)
+- Metrics or results (e.g., throughput improvement, memory reduction)
+
+**Acceptance Criteria**:
+- Measurable outcome
+- Documented steps and results
+- Ties back to L3/L4 learning outcomes
