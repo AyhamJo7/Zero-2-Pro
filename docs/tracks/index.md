@@ -2,49 +2,79 @@
 
 Choose your learning path based on your goals and interests. Each track takes you from zero to production-ready skills.
 
-## Available Tracks
+<div class="grid cards" markdown>
 
-### [Git Fundamentals](git-path.md)
+-   **Git Fundamentals**
 
-**6 modules** across **3 levels**
+    ---
 
-Build production-ready git fundamentals skills through hands-on learning.
+    6 modules • 3 levels
 
-### [Web Development](web-development.md)
+    Build production-ready git fundamentals skills through hands-on projects
 
-**5 modules** across **5 levels**
+    [View Track :material-arrow-right:](git-path.md)
 
-Build production-ready web development skills through hands-on learning.
+-   **Web Development**
 
-### [Python](python.md)
+    ---
 
-**5 modules** across **5 levels**
+    5 modules • 5 levels
 
-Build production-ready python skills through hands-on learning.
+    Build production-ready web development skills through hands-on projects
 
-### [Java](java.md)
+    [View Track :material-arrow-right:](web-development.md)
 
-**5 modules** across **5 levels**
+-   **Python**
 
-Build production-ready java skills through hands-on learning.
+    ---
 
-### [Go](go.md)
+    5 modules • 5 levels
 
-**5 modules** across **5 levels**
+    Build production-ready python skills through hands-on projects
 
-Build production-ready go skills through hands-on learning.
+    [View Track :material-arrow-right:](python.md)
 
-### [AI/ML](ai-ml.md)
+-   **Java**
 
-**5 modules** across **5 levels**
+    ---
 
-Build production-ready ai/ml skills through hands-on learning.
+    5 modules • 5 levels
 
-### [Cyber Security](cyber-security.md)
+    Build production-ready java skills through hands-on projects
 
-**5 modules** across **5 levels**
+    [View Track :material-arrow-right:](java.md)
 
-Build production-ready cyber security skills through hands-on learning.
+-   **Go**
+
+    ---
+
+    5 modules • 5 levels
+
+    Build production-ready go skills through hands-on projects
+
+    [View Track :material-arrow-right:](go.md)
+
+-   **AI/ML**
+
+    ---
+
+    5 modules • 5 levels
+
+    Build production-ready ai/ml skills through hands-on projects
+
+    [View Track :material-arrow-right:](ai-ml.md)
+
+-   **Cyber Security**
+
+    ---
+
+    5 modules • 5 levels
+
+    Build production-ready cyber security skills through hands-on projects
+
+    [View Track :material-arrow-right:](cyber-security.md)
+
+</div>
 
 ## How Tracks Work
 

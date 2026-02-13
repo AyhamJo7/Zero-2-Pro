@@ -2,42 +2,75 @@
 
 Learn cyber security from zero to production-ready skills through structured, hands-on modules.
 
-## Learning Path
+<div class="grid cards" markdown>
 
-### Orientation: From Zero: Security Mindset, Networking, and Linux Basics
+-   **Orientation**
 
-**Level 0** • Getting started and setup
+    ---
 
-[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/06-cyber-security/sec-00-basics.md)
+    ### From Zero: Security Mindset, Networking, and Linux Basics
 
-### Foundations: Foundations: OWASP Top 10 Overview + Secure Auth Basics
+    Getting started and setup
 
-**Level 1** • Core concepts and basics
+    **Level 0**
 
-[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/06-cyber-security/sec-01-web-owasp.md)
+    [Start Module :material-arrow-right:](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/06-cyber-security/sec-00-basics.md)
 
-### Core Skills: Core Skills: Hardening, Patching, Secrets, Logging
+-   **Foundations**
 
-**Level 2** • Practical application
+    ---
 
-[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/06-cyber-security/sec-02-blue-team.md)
+    ### Foundations: OWASP Top 10 Overview + Secure Auth Basics
 
-### Project: Milestone: Harden a Small Web App (Legal Lab Only)
+    Core concepts and basics
 
-**Level 3** • Real-world milestone
+    **Level 1**
 
-[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/06-cyber-security/sec-03-project-harden-app.md)
+    [Start Module :material-arrow-right:](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/06-cyber-security/sec-01-web-owasp.md)
 
-### Advanced: Advanced: Hardening Playbook & Threat Modeling
+-   **Core Skills**
 
-**Level 4** • Production-ready expertise
+    ---
 
-[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/06-cyber-security/sec-04-advanced.md)
+    ### Core Skills: Hardening, Patching, Secrets, Logging
 
----
+    Practical application
 
-## Track Overview
+    **Level 2**
 
-- **Modules**: 5
-- **Levels**: 5
-- **Format**: Self-paced with milestones
+    [Start Module :material-arrow-right:](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/06-cyber-security/sec-02-blue-team.md)
+
+-   **Project**
+
+    ---
+
+    ### Milestone: Harden a Small Web App (Legal Lab Only)
+
+    Real-world milestone
+
+    **Level 3**
+
+    [Start Module :material-arrow-right:](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/06-cyber-security/sec-03-project-harden-app.md)
+
+-   **Advanced**
+
+    ---
+
+    ### Advanced: Hardening Playbook & Threat Modeling
+
+    Production-ready expertise
+
+    **Level 4**
+
+    [Start Module :material-arrow-right:](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/06-cyber-security/sec-04-advanced.md)
+
+</div>
+
+## Track Details
+
+| Metric | Value |
+|--------|-------|
+| **Modules** | 5 |
+| **Levels** | 5 |
+| **Format** | Self-paced with milestones |
+| **Prerequisites** | Varies by level |
