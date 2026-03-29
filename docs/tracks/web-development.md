@@ -2,42 +2,75 @@
 
 Learn web development from zero to production-ready skills through structured, hands-on modules.
 
-## Learning Path
+<div class="grid cards" markdown>
 
-### Orientation: From Zero: How the Web Works (Client/Server, HTTP, HTML/CSS)
+-   **Orientation**
 
-**Level 0** • Getting started and setup
+    ---
 
-[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/01-web-development/web-00-orientation.md)
+    ### From Zero: How the Web Works (Client/Server, HTTP, HTML/CSS)
 
-### Foundations: Foundations: Modern JavaScript + DOM Essentials
+    Getting started and setup
 
-**Level 1** • Core concepts and basics
+    **Level 0**
 
-[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/01-web-development/web-01-foundations-js.md)
+    [Start Module :material-arrow-right:](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/01-web-development/web-00-orientation.md)
 
-### Core Skills: Core Skills: API Basics + Persistence + Auth Concepts
+-   **Foundations**
 
-**Level 2** • Practical application
+    ---
 
-[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/01-web-development/web-02-core-fullstack.md)
+    ### Foundations: Modern JavaScript + DOM Essentials
 
-### Project: Milestone: SPA + API with Auth and Tests
+    Core concepts and basics
 
-**Level 3** • Real-world milestone
+    **Level 1**
 
-[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/01-web-development/web-03-project-spa-api.md)
+    [Start Module :material-arrow-right:](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/01-web-development/web-01-foundations-js.md)
 
-### Advanced: Advanced: Web Performance & Observability
+-   **Core Skills**
 
-**Level 4** • Production-ready expertise
+    ---
 
-[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/01-web-development/web-04-advanced.md)
+    ### Core Skills: API Basics + Persistence + Auth Concepts
 
----
+    Practical application
 
-## Track Overview
+    **Level 2**
 
-- **Modules**: 5
-- **Levels**: 5
-- **Format**: Self-paced with milestones
+    [Start Module :material-arrow-right:](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/01-web-development/web-02-core-fullstack.md)
+
+-   **Project**
+
+    ---
+
+    ### Milestone: SPA + API with Auth and Tests
+
+    Real-world milestone
+
+    **Level 3**
+
+    [Start Module :material-arrow-right:](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/01-web-development/web-03-project-spa-api.md)
+
+-   **Advanced**
+
+    ---
+
+    ### Advanced: Web Performance & Observability
+
+    Production-ready expertise
+
+    **Level 4**
+
+    [Start Module :material-arrow-right:](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/01-web-development/web-04-advanced.md)
+
+</div>
+
+## Track Details
+
+| Metric | Value |
+|--------|-------|
+| **Modules** | 5 |
+| **Levels** | 5 |
+| **Format** | Self-paced with milestones |
+| **Prerequisites** | Varies by level |
