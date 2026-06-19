@@ -70,3 +70,61 @@ Set up production deployment pipeline:
 - [OAuth2 Specification](https://oauth.net/2/)
 - [WebSocket API](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket)
 - [Web Performance Best Practices](https://web.dev/performance/)
+
+---
+
+## Level-4 Challenge Variants — Advanced Web Performance
+
+These challenge variants extend the **web-04-advanced-performance** module with additional stretch goals that deepen your production skills.
+
+---
+
+## Variant A — Performance Budgets Everywhere
+**Goal**: Apply budgets to scripts, images, and API latency. Fail CI if any budget is exceeded.
+
+**Deliverables**:
+- Budget config file (e.g., `budgets.json` or similar)
+- CI run link or logs showing pass/fail
+- Before/after report (e.g., Lighthouse or bundle analyzer)
+
+**Acceptance Criteria**:
+- At least 3 budgets defined (e.g., JS, CSS, image size)
+- CI job fails when any budget exceeded
+- Evidence of threshold enforcement
+
+---
+
+## Variant B — Progressive Enhancement Stress-Test
+**Goal**: Ensure core flows work with JS disabled; record Lighthouse scores.
+
+**Deliverables**:
+- Screenshots of app with JS disabled
+- Notes documenting which flows work/fail
+- Any fixes applied to make it "PE-ready"
+- Lighthouse report (before/after if fixes applied)
+
+**Acceptance Criteria**:
+- At least one critical flow tested without JS
+- Documented findings + next steps
+- Lighthouse score documented
+
+---
+
+## Variant C — (Your own stretch)
+**Goal**: Propose and execute a measurable stretch aligned with the module outcomes.
+
+**Examples**:
+- HTTP/2 push or early hints
+- Service worker for offline capability
+- Real User Monitoring (RUM) with field data analysis
+- A/B test infrastructure
+
+**Deliverables**:
+- Short proposal (1–2 paragraphs)
+- Implementation evidence (code, config, screenshots)
+- Metrics or results (e.g., before/after latency, hit rate)
+
+**Acceptance Criteria**:
+- Measurable outcome
+- Documented steps and results
+- Ties back to L3/L4 learning outcomes

@@ -1,0 +1,14 @@
+{
+  "name": "web-spa-api-starter",
+  "version": "0.1.0",
+  "description": "Minimal Node.js API starter for Zero-2-Pro",
+  "type": "module",
+  "scripts": {
+    "start": "node api/index.js",
+    "test": "node --test api/test.api.js"
+  },
+  "devDependencies": {
+    "express": "^4.21.2",
+    "supertest": "^7.0.0"
+  }
+}

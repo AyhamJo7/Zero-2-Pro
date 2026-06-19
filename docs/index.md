@@ -13,6 +13,15 @@ This site is auto-generated from the repository catalog.
     – ✅ Create progress issue:
       <https://github.com/AyhamJo7/Zero-2-Pro/issues/new?template=progress.md&title=Progress%3A+YOUR_NAME>
 
+!!! note "Start a cohort"
+    Want accountability? **Start a study cohort**:
+
+    – Open a **Cohort** issue via the template
+    – Share a weekly cadence and your track(s)
+    – Invite peers to join
+
+    → <https://github.com/AyhamJo7/Zero-2-Pro/issues/new?template=cohort.md&labels=cohort,docs>
+
 - 📚 **Tracks:** See the [Tracks Overview](tracks/index.md)
 - 🧭 **Repository:** [GitHub Repo](https://github.com/AyhamJo7/Zero-2-Pro)
 - 🧩 **Contributing:** See `CONTRIBUTING.md` in the repo

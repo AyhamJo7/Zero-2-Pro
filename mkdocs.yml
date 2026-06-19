@@ -54,3 +54,8 @@ markdown_extensions:
   - footnotes
   - tables
   - attr_list
+
+# Optional: Plausible Analytics (disabled by default)
+# Uncomment to enable after setting PLAUSIBLE_DOMAIN at deploy time
+# extra_javascript:
+#   - assets/plausible.js
