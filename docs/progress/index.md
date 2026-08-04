@@ -2,7 +2,7 @@
 
 Track learner progress across all Zero-to-Pro tracks.
 
-**Last updated**: 2026-08-03
+**Last updated**: 2026-08-04
 
 **Active learners**: 0
 
