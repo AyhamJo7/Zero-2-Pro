@@ -2,42 +2,75 @@
 
 Learn java from zero to production-ready skills through structured, hands-on modules.
 
-## Learning Path
+<div class="grid cards" markdown>
 
-### Orientation: From Zero: JDK Install, javac/java, and First Program
+-   **Orientation**
 
-**Level 0** • Getting started and setup
+    ---
 
-[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/03-java/java-00-setup.md)
+    ### From Zero: JDK Install, javac/java, and First Program
 
-### Foundations: Foundations: OOP, Collections, Exceptions, I/O
+    Getting started and setup
 
-**Level 1** • Core concepts and basics
+    **Level 0**
 
-[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/03-java/java-01-foundations.md)
+    [Start Module :material-arrow-right:](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/03-java/java-00-setup.md)
 
-### Core Skills: Core Skills: Build a Minimal REST API + Tests
+-   **Foundations**
 
-**Level 2** • Practical application
+    ---
 
-[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/03-java/java-02-core-rest.md)
+    ### Foundations: OOP, Collections, Exceptions, I/O
 
-### Project: Milestone: Production-ish Service (Logging, Health, Dockerfile)
+    Core concepts and basics
 
-**Level 3** • Real-world milestone
+    **Level 1**
 
-[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/03-java/java-03-project-service.md)
+    [Start Module :material-arrow-right:](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/03-java/java-01-foundations.md)
 
-### Advanced: Advanced: Resilient Services & Observability
+-   **Core Skills**
 
-**Level 4** • Production-ready expertise
+    ---
 
-[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/03-java/java-04-advanced.md)
+    ### Core Skills: Build a Minimal REST API + Tests
 
----
+    Practical application
 
-## Track Overview
+    **Level 2**
 
-- **Modules**: 5
-- **Levels**: 5
-- **Format**: Self-paced with milestones
+    [Start Module :material-arrow-right:](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/03-java/java-02-core-rest.md)
+
+-   **Project**
+
+    ---
+
+    ### Milestone: Production-ish Service (Logging, Health, Dockerfile)
+
+    Real-world milestone
+
+    **Level 3**
+
+    [Start Module :material-arrow-right:](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/03-java/java-03-project-service.md)
+
+-   **Advanced**
+
+    ---
+
+    ### Advanced: Resilient Services & Observability
+
+    Production-ready expertise
+
+    **Level 4**
+
+    [Start Module :material-arrow-right:](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/03-java/java-04-advanced.md)
+
+</div>
+
+## Track Details
+
+| Metric | Value |
+|--------|-------|
+| **Modules** | 5 |
+| **Levels** | 5 |
+| **Format** | Self-paced with milestones |
+| **Prerequisites** | Varies by level |

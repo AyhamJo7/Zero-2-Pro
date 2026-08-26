@@ -2,42 +2,75 @@
 
 Learn ai/ml from zero to production-ready skills through structured, hands-on modules.
 
-## Learning Path
+<div class="grid cards" markdown>
 
-### Orientation: From Zero: Math Survival Kit + Python for Data
+-   **Orientation**
 
-**Level 0** • Getting started and setup
+    ---
 
-[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/05-ai-ml/ai-00-math-python.md)
+    ### From Zero: Math Survival Kit + Python for Data
 
-### Foundations: Foundations: ML Workflow + Classical Models
+    Getting started and setup
 
-**Level 1** • Core concepts and basics
+    **Level 0**
 
-[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/05-ai-ml/ai-01-classical-ml.md)
+    [Start Module :material-arrow-right:](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/05-ai-ml/ai-00-math-python.md)
 
-### Core Skills: Core Skills: Training Loops, Regularization, Embeddings
+-   **Foundations**
 
-**Level 2** • Practical application
+    ---
 
-[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/05-ai-ml/ai-02-deeplearning-basics.md)
+    ### Foundations: ML Workflow + Classical Models
 
-### Project: Milestone: Simple ML App or RAG Demo with Evaluation
+    Core concepts and basics
 
-**Level 3** • Real-world milestone
+    **Level 1**
 
-[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/05-ai-ml/ai-03-project-mlapp.md)
+    [Start Module :material-arrow-right:](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/05-ai-ml/ai-01-classical-ml.md)
 
-### Advanced: Advanced: RAG Evaluation, Guardrails, and Observability
+-   **Core Skills**
 
-**Level 4** • Production-ready expertise
+    ---
 
-[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/05-ai-ml/ai-04-advanced.md)
+    ### Core Skills: Training Loops, Regularization, Embeddings
 
----
+    Practical application
 
-## Track Overview
+    **Level 2**
 
-- **Modules**: 5
-- **Levels**: 5
-- **Format**: Self-paced with milestones
+    [Start Module :material-arrow-right:](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/05-ai-ml/ai-02-deeplearning-basics.md)
+
+-   **Project**
+
+    ---
+
+    ### Milestone: Simple ML App or RAG Demo with Evaluation
+
+    Real-world milestone
+
+    **Level 3**
+
+    [Start Module :material-arrow-right:](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/05-ai-ml/ai-03-project-mlapp.md)
+
+-   **Advanced**
+
+    ---
+
+    ### Advanced: RAG Evaluation, Guardrails, and Observability
+
+    Production-ready expertise
+
+    **Level 4**
+
+    [Start Module :material-arrow-right:](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/05-ai-ml/ai-04-advanced.md)
+
+</div>
+
+## Track Details
+
+| Metric | Value |
+|--------|-------|
+| **Modules** | 5 |
+| **Levels** | 5 |
+| **Format** | Self-paced with milestones |
+| **Prerequisites** | Varies by level |

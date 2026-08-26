@@ -2,48 +2,87 @@
 
 Learn git fundamentals from zero to production-ready skills through structured, hands-on modules.
 
-## Learning Path
+<div class="grid cards" markdown>
 
-### Orientation: Git from Absolute Zero: Concepts & Setup
+-   **Orientation**
 
-**Level 0** • Getting started and setup
+    ---
 
-[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/00-git-path/git-01-intro.md)
+    ### Git from Absolute Zero: Concepts & Setup
 
-### Foundations: Local Basics: init, status, add, commit, log
+    Getting started and setup
 
-**Level 1** • Core concepts and basics
+    **Level 0**
 
-[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/00-git-path/git-02-first-commit.md)
+    [Start Module :material-arrow-right:](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/00-git-path/git-01-intro.md)
 
-### Foundations: Branches & Merges: Fast-forward, Three-way
+-   **Foundations**
 
-**Level 1** • Core concepts and basics
+    ---
 
-[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/00-git-path/git-03-branches-merges.md)
+    ### Local Basics: init, status, add, commit, log
 
-### Core Skills: Remotes & GitHub: clone, fetch, pull, push, PR
+    Core concepts and basics
 
-**Level 2** • Practical application
+    **Level 1**
 
-[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/00-git-path/git-04-remotes-github.md)
+    [Start Module :material-arrow-right:](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/00-git-path/git-02-first-commit.md)
 
-### Core Skills: Rebase Safely: interactive rebase, fixups, autosquash
+-   **Foundations**
 
-**Level 2** • Practical application
+    ---
 
-[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/00-git-path/git-05-rebase-conflicts.md)
+    ### Branches & Merges: Fast-forward, Three-way
 
-### Core Skills: Time Travel: log formats, blame, bisect, tags
+    Core concepts and basics
 
-**Level 2** • Practical application
+    **Level 1**
 
-[Start Module →](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/00-git-path/git-06-history-tools.md)
+    [Start Module :material-arrow-right:](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/00-git-path/git-03-branches-merges.md)
 
----
+-   **Core Skills**
 
-## Track Overview
+    ---
 
-- **Modules**: 6
-- **Levels**: 3
-- **Format**: Self-paced with milestones
+    ### Remotes & GitHub: clone, fetch, pull, push, PR
+
+    Practical application
+
+    **Level 2**
+
+    [Start Module :material-arrow-right:](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/00-git-path/git-04-remotes-github.md)
+
+-   **Core Skills**
+
+    ---
+
+    ### Rebase Safely: interactive rebase, fixups, autosquash
+
+    Practical application
+
+    **Level 2**
+
+    [Start Module :material-arrow-right:](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/00-git-path/git-05-rebase-conflicts.md)
+
+-   **Core Skills**
+
+    ---
+
+    ### Time Travel: log formats, blame, bisect, tags
+
+    Practical application
+
+    **Level 2**
+
+    [Start Module :material-arrow-right:](https://github.com/AyhamJo7/Zero-2-Pro/blob/main/00-git-path/git-06-history-tools.md)
+
+</div>
+
+## Track Details
+
+| Metric | Value |
+|--------|-------|
+| **Modules** | 6 |
+| **Levels** | 3 |
+| **Format** | Self-paced with milestones |
+| **Prerequisites** | Varies by level |

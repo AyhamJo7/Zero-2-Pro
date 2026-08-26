@@ -1,0 +1,30 @@
+name: Web Template Tests
+
+on:
+  push:
+    paths:
+      - 'templates/web-spa-api/**'
+      - '.github/workflows/web-templates.yml'
+  pull_request:
+    paths:
+      - 'templates/web-spa-api/**'
+      - '.github/workflows/web-templates.yml'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        working-directory: templates/web-spa-api
+        run: npm ci
+
+      - name: Run tests
+        working-directory: templates/web-spa-api
+        run: npm test
