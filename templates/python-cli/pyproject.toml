@@ -1,0 +1,19 @@
+[project]
+name = "python-cli-starter"
+version = "0.1.0"
+description = "Minimal Python CLI template for Zero-2-Pro"
+requires-python = ">=3.11"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = "-ra -q"
+testpaths = ["tests"]

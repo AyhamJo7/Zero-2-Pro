@@ -22,12 +22,31 @@ resources:
 tags: ["asyncio","profiling","concurrency","benchmarking","retries"]
 ---
 
-# Advanced: Async IO, Concurrency, and Profiling
+# Advanced: Async I/O, Concurrency & Performance in Python
 
-Build a small **data pipeline** (e.g., HTTP fetch → parse → write) with **bounded concurrency**, **timeouts**, and **retries**. Profile CPU/memory, produce quick flamegraphs, and compare throughput with a threaded version.
+## Outcomes
+- Profile async workloads; identify I/O vs CPU bottlenecks
+- Use `asyncio`, `uvloop` (optional), and **structured concurrency** patterns
+- Implement **bounded concurrency** and backpressure
+- Add **benchmark + regression guard** in CI
 
-## Tasks
-- Prototype sync, async, and thread-pool variants; measure throughput/latency.
-- Add bounded concurrency; handle cancellations and timeouts.
-- Profile (cpu/mem) and visualize hot paths; document findings.
-- Provide a CLI to run scenarios and print metrics.
+## Prerequisites
+- Python project basics, pytest, venv, type hints preferred
+- Completed `py-03-project-cli` or have an equivalent CLI/script project
+
+## Reading / References
+- [Python — asyncio](https://docs.python.org/3/library/asyncio.html)
+- [Python — cProfile & profile](https://docs.python.org/3/library/profile.html)
+- [asyncio tasks & cancellations](https://docs.python.org/3/library/asyncio-task.html)
+- [Amdahl's law refresher](https://en.wikipedia.org/wiki/Amdahl%27s_law)
+
+## Exercise
+1. Clone `templates/python-cli` or your L3 CLI project.
+2. Implement **async pipeline** (e.g., fetch/process/write) with bounded concurrency (semaphore or task groups).
+3. Add **micro-benchmark** (pytest-benchmark or timeit harness).
+4. Include a **perf guard** in CI that fails if p95 latency regresses by >10% (commentary in README is acceptable if automation is not practical).
+
+## Acceptance Checklist
+- [ ] Async pipeline implemented and tested with pytest
+- [ ] Benchmark script + baseline results committed
+- [ ] CI perf guard demonstrated (either automated check or commentary + logs showing how to verify)
